@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'images/logo/jettaba2.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -113,8 +113,8 @@ return [
         'enabled' => true,
         'mode' => 'fullscreen',
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'path' => 'images/logo/jettaba2.png',
+            'alt' => 'Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
@@ -257,13 +257,13 @@ return [
     */
 
     'use_route_url' => true,
-    'dashboard_url' => false,
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => false,
     'password_reset_url' => false,
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => 'profile.edit',
     'disable_darkmode_routes' => false,
 
     /*
@@ -325,7 +325,7 @@ return [
         ],
         [
             'text' => 'Manage Students',
-            'url' => '#s',
+            'url' => '/students',
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
@@ -340,13 +340,8 @@ return [
 
         [
             'text' => 'profile',
-            'url' => 'admin/settings',
+            'url' => 'profile',
             'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
         ],
         [
             'text' => 'multilevel',
