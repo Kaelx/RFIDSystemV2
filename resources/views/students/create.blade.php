@@ -74,6 +74,9 @@
                         </div>
                         <div class="card-footer text-right">
                             <button type="submit" class="btn btn-primary">Submit</button>
+
+                            <a href="{{ route('students.index') }}"><button type="button"
+                                    class="btn btn-secondary">Cancel</button></a>
                         </div>
                     </form>
                 </div>

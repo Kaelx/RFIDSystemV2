@@ -13,10 +13,9 @@
             <a href="{{ route('students.create') }}"><button class="btn btn-primary m-2">Add Student</button></a>
         </div>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="users-table">
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>School ID</th>
                     <th>Name</th>
                     <th>Profile Image</th>
@@ -28,7 +27,6 @@
             <tbody>
                 @foreach ($students as $student)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $student->school_id }}</td>
                         <td>{{ $student->fname . ' ' . $student->mname . ' ' . $student->lname . ' ' . $student->sname }}
                         </td>
@@ -40,5 +38,18 @@
                     </tr>
                 @endforeach
             </tbody>
+        </table>
+
+        @push('js')
+            <script>
+                $(function() {
+                    $('#users-table').DataTable({
+                        responsive: true,
+                        autoWidth: false,
+                    });
+                });
+            </script>
+        @endpush
+
     </div>
 @endsection
