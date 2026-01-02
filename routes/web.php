@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentsController;
-use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\EmployeeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,8 +21,8 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::resource('students', StudentsController::class);
-    Route::resource('employees', EmployeesController::class);
+    Route::resource('students', StudentController::class);
+    Route::resource('employees', EmployeeController::class);
 });
 
 require __DIR__ . '/auth.php';

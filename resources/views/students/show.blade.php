@@ -25,4 +25,5 @@
                 <a href="{{ route('students.index') }}"><button>Back</button></a>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

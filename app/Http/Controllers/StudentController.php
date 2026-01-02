@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Students;
+use App\Models\Student;
 
-class StudentsController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $students = Students::all();
+        $students = Student::all();
 
         return view('students.index', compact('students'));
     }
@@ -46,7 +46,7 @@ class StudentsController extends Controller
             $validated['image'] = $imagePath;
         }
 
-        Students::create($validated);
+        Student::create($validated);
         return redirect()->route('students.index')->with('success', 'Student created successfully.');
     }
 
@@ -55,7 +55,7 @@ class StudentsController extends Controller
      */
     public function show(string $id)
     {
-        $student = Students::findOrFail($id);
+        $student = Student::findOrFail($id);
         return view('students.show', compact('student'));
     }
 
@@ -64,7 +64,7 @@ class StudentsController extends Controller
      */
     public function edit(string $id)
     {
-        $student = Students::findOrFail($id);
+        $student = Student::findOrFail($id);
         return view('students.edit', compact('student'));
     }
 
@@ -73,7 +73,7 @@ class StudentsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $student = Students::findOrFail($id);
+        $student = Student::findOrFail($id);
 
         $validated = $request->validate([
             'school_id' => 'required|string|max:255|unique:students,school_id,' . $student->id,
@@ -92,7 +92,7 @@ class StudentsController extends Controller
         }
 
         $student->update($validated);
-        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
+        return redirect()->route('students.show', $student->id)->with('success', 'Student updated successfully.');
     }
 
     /**

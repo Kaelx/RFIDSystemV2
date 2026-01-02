@@ -21,7 +21,7 @@
             <div class="col-md-8">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Student Information</h3>
+                        <h3 class="card-title">Student Form</h3>
                     </div>
                     <form action="{{ route('students.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 <label for="sex">Sex</label>
                                 <select name="sex" id="sex" class="form-control">
-                                    <option value="" selected>Please Choose</option>
+                                    <option value="" selected>--Please Choose--</option>
                                     <option value="male" {{ old('sex') == 'male' ? 'selected' : '' }}>Male</option>
                                     <option value="female" {{ old('sex') == 'female' ? 'selected' : '' }}>Female</option>
                                     <option value="none" {{ old('sex') == 'none' ? 'selected' : '' }}>Prefer not to say
