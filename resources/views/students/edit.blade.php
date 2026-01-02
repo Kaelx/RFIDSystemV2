@@ -6,7 +6,6 @@
 
 @section('content')
     <div class="container">
-
         @if ($errors->all())
             <div class="alert alert-danger">
                 <ul class="mb-0">
@@ -48,7 +47,7 @@
                                     value="{{ old('lname', $student->lname) }}">
                             </div>
                             <div class="form-group">
-                                <label for="sname">Sur Name</label>
+                                <label for="sname">Suffix Name</label>
                                 <input type="text" id="sname" name="sname" class="form-control"
                                     value="{{ old('sname', $student->sname) }}">
                             </div>

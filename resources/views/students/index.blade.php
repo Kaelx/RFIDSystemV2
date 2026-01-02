@@ -1,14 +1,11 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    {{-- <h1>{{ __('Students List') }}</h1> --}}
-    <h1>Student List</h1>
+    <h1>Students</h1>
 @endsection
 
 @section('content')
     <div class="container">
-        <!-- Students table or content goes here -->
-
         <div>
             <a href="{{ route('students.create') }}"><button class="btn btn-primary m-2">Add Student</button></a>
         </div>

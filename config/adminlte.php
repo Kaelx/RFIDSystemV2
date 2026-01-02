@@ -319,7 +319,7 @@ return [
         ],
         [
             'text' => 'Manage Employees',
-            'url' => '#',
+            'url' => '/employees',
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],

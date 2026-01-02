@@ -47,7 +47,7 @@
                                     value="{{ old('lname') }}">
                             </div>
                             <div class="form-group">
-                                <label for="sname">Sur Name</label>
+                                <label for="sname">Suffix Name</label>
                                 <input type="text" id="sname" name="sname" class="form-control"
                                     value="{{ old('sname') }}">
                             </div>
