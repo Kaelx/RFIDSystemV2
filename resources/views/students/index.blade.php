@@ -7,27 +7,26 @@
 @section('content')
     <div class="container">
         <div>
-            <a href="{{ route('students.create') }}"><button class="btn btn-primary mb-2">Add Student</button></a>
+            <a href="{{ route('students.create') }}"><x-primary-button class="mb-2">Add Student</x-primary-button></a>
         </div>
-
         <table class="table table-bordered" id="users-table">
             <thead>
                 <tr>
                     <th>School ID</th>
                     <th>Name</th>
                     <th>Actions</th>
-
-
                 </tr>
             </thead>
             <tbody>
                 @foreach ($students as $student)
                     <tr>
-                        <td>{{ $student->school_id }}</td>
+                        <td> {{ $student->school_id }}</td>
                         <td>{{ $student->fname . ' ' . $student->mname . ' ' . $student->lname . ' ' . $student->sname }}
                         </td>
                         <td>
-                            <a href="{{ route('students.show', $student->id) }}" class="btn btn-sm btn-primary">View</a>
+                            <a
+                                href="{{ route('students.show', $student->id) }}"><x-primary-button>View</x-primary-button></a>
+
                         </td>
                     </tr>
                 @endforeach
@@ -44,6 +43,5 @@
                 });
             </script>
         @endpush
-
     </div>
 @endsection

@@ -21,8 +21,8 @@
                     </div>
                 </div>
 
-                <a href="{{ route('students.edit', $student->id) }}"><button>Edit</button></a>
-                <a href="{{ route('students.index') }}"><button>Back</button></a>
+                <a href="{{ route('students.edit', $student->id) }}"><x-primary-button>Edit</x-primary-button></a>
+                <a href="{{ route('students.index') }}"><x-secondary-button>Back</x-secondary-button></a>
             </div>
         </div>
     </div>

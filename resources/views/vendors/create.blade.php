@@ -14,7 +14,7 @@
             <form action="{{ route('vendors.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">
-                    <h2 class="card-title">Vendor Form</h2>
+                    <h2 class="card-title">Form</h2>
                 </div>
                 <div class="card-body">
                     <div class="mb-2">

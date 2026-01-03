@@ -16,23 +16,27 @@
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
         @include('layouts.navigation')
+
 
         <!-- Page Heading -->
         @isset($header)
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <section class="content-header">
+                <div class="container-fluid">
                     {{ $header }}
                 </div>
-            </header>
+            </section>
         @endisset
 
         <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+        <section class="content">
+            <div class="container-fluid">
+                {{ $slot }}
+            </div>
+        </section>
     </div>
 </body>
 

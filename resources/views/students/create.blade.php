@@ -4,83 +4,72 @@
     <h1>Add New Student</h1>
 @endsection
 
+
 @section('content')
     <div class="container">
 
-        @if ($errors->all())
-            <div class="alert alert-danger">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        {{-- <x-input-error :messages="$errors->all()" /> --}}
 
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">Student Form</h3>
-                    </div>
-                    <form action="{{ route('students.store') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="school_id">School ID</label>
-                                <input type="text" id="school_id" name="school_id" class="form-control"
-                                    value="{{ old('school_id') }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="fname">First Name</label>
-                                <input type="text" id="fname" name="fname" class="form-control"
-                                    value="{{ old('fname') }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="mname">Middle Name</label>
-                                <input type="text" id="mname" name="mname" class="form-control"
-                                    value="{{ old('mname') }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="lname">Last Name</label>
-                                <input type="text" id="lname" name="lname" class="form-control"
-                                    value="{{ old('lname') }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="sname">Suffix Name</label>
-                                <input type="text" id="sname" name="sname" class="form-control"
-                                    value="{{ old('sname') }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="bdate">Birthdate</label>
-                                <input type="date" id="bdate" name="bdate" class="form-control"
-                                    value="{{ old('bdate') }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="sex">Sex</label>
-                                <select name="sex" id="sex" class="form-control">
-                                    <option value="" selected>--Please Choose--</option>
-                                    <option value="male" {{ old('sex') == 'male' ? 'selected' : '' }}>Male</option>
-                                    <option value="female" {{ old('sex') == 'female' ? 'selected' : '' }}>Female</option>
-                                    <option value="none" {{ old('sex') == 'none' ? 'selected' : '' }}>Prefer not to say
-                                    </option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="image">Upload Image</label>
-                                <input type="file" id="image" name="image" class="form-control-file"
-                                    accept="image/*">
-                            </div>
-                        </div>
-                        <div class="card-footer text-right">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-
-                            <a href="{{ route('students.index') }}"><button type="button"
-                                    class="btn btn-secondary">Cancel</button></a>
-                        </div>
-                    </form>
+        <div class="card">
+            <form action="{{ route('students.store') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="card-header">
+                    <h2 class="card-title">Form</h2>
                 </div>
-            </div>
+                <div class="card-body">
+                    <div class="mb-2">
+                        <x-input-label for="school_id" value="School ID" />
+                        <x-text-input type="text" id="school_id" name="school_id" value="{{ old('school_id') }}" />
+                        <x-input-error :messages="$errors->get('school_id')" />
+                    </div>
+                    <div class="mb-2">
+                        <x-input-label for="fname" value="First Name" />
+                        <x-text-input type="text" id="fname" name="fname" value="{{ old('fname') }}" />
+                        <x-input-error :messages="$errors->get('fname')" />
+                    </div>
+                    <div class="mb-2">
+                        <x-input-label for="mname" value="Middle Name" />
+                        <x-text-input type="text" id="mname" name="mname" value="{{ old('mname') }}" />
+                        <x-input-error :messages="$errors->get('mname')" />
+                    </div>
+                    <div class="mb-2">
+                        <x-input-label for="lname" value="Last Name" />
+                        <x-text-input type="text" id="lname" name="lname" value="{{ old('lname') }}" />
+                        <x-input-error :messages="$errors->get('lname')" />
+                    </div>
+                    <div class="mb-2">
+                        <x-input-label for="sname" value="Suffix Name" />
+                        <x-text-input type="text" id="sname" name="sname" value="{{ old('sname') }}" />
+                        <x-input-error :messages="$errors->get('sname')" />
+                    </div>
+                    <div class="mb-2">
+                        <x-input-label for="bdate" value="Birthdate" />
+                        <x-text-input type="date" id="bdate" name="bdate" value="{{ old('bdate') }}" />
+                        <x-input-error :messages="$errors->get('bdate')" />
+                    </div>
+                    <div class="mb-2">
+                        <x-input-label for="sex" value="Sex" />
+                        <select name="sex" id="sex" class="form-control">
+                            <option value="" selected>--Please Choose--</option>
+                            <option value="male" {{ old('sex') == 'male' ? 'selected' : '' }}>Male</option>
+                            <option value="female" {{ old('sex') == 'female' ? 'selected' : '' }}>Female</option>
+                            <option value="none" {{ old('sex') == 'none' ? 'selected' : '' }}>Prefer not to say
+                            </option>
+                        </select>
+                        <x-input-error :messages="$errors->get('sex')" />
+                    </div>
+                    <div class="mb-2">
+                        <x-input-label for="image" value="Upload Image" />
+                        <x-text-input type="file" id="image" name="image" accept="image/*" />
+                        <x-input-error :messages="$errors->get('image')" />
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <x-primary-button type="submit">Save</x-primary-button>
+                    <a href="{{ route('students.index') }}"><x-secondary-button
+                            type="button">Cancel</x-secondary-button></a>
+                </div>
+            </form>
         </div>
     </div>
 @endsection

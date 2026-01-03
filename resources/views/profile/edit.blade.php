@@ -1,12 +1,11 @@
 @extends('adminlte::page')
 
-@section('content')
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
 
+@section('content_header')
+    <h1>Profile</h1>
+@endsection
+
+@section('content')
     <div class="container">
         <div>
             <div class="card mb-4">

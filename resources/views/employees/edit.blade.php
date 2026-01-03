@@ -15,7 +15,7 @@
                 @csrf
                 @method('PATCH')
                 <div class="card-header">
-                    <h2 class="card-title">Edit Employee</h2>
+                    <h2 class="card-title">Form</h2>
                 </div>
                 <div class="card-body">
                     <div class="mb-2">
