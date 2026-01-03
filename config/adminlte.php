@@ -331,7 +331,7 @@ return [
         ],
         [
             'text' => 'Manage Vendors',
-            'url' => '#',
+            'url' => '/vendors',
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
@@ -340,7 +340,7 @@ return [
 
         [
             'text' => 'profile',
-            'url' => 'profile',
+            'url' => '/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         // [
