@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => '<b>RFID</b> Verification',
-    'logo_img' => 'images/logo/jettaba2.png',
+    'logo_img' => 'images/logo/rfid.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'images/logo/jettaba2.png',
+            'path' => 'images/logo/rfid.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -113,7 +113,7 @@ return [
         'enabled' => false,
         'mode' => 'fullscreen',
         'img' => [
-            'path' => 'images/logo/jettaba2.png',
+            'path' => 'images/logo/rfid.png',
             'alt' => 'Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
@@ -333,6 +333,13 @@ return [
         [
             'text' => 'Manage Vendors',
             'url' => '/vendors',
+            'icon' => 'far fa-fw fa-file',
+            'label_color' => 'success',
+        ],
+        ['header' => 'OTHER'],
+        [
+            'text' => 'Manage Category',
+            'url' => '/categories',
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
