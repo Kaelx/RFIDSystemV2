@@ -5,25 +5,25 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Profile Image:</strong></p>
+                <img src="{{ asset('storage/' . $employee->image) }}" alt="{{ $employee->lname }}" class="img-thumbnail"
+                    style="max-width: 150px;">
 
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-primary">
-                    <div class="card-body">
-                        <p><strong>School ID:</strong> {{ $employee->school_id }}</p>
-                        <p><strong>Name:</strong>
-                            {{ $employee->fname . ' ' . $employee->mname . ' ' . $employee->lname . ' ' . $employee->sname }}
-                        </p>
-                        <p><strong>Profile Image:</strong></p>
-                        <img src="{{ asset('storage/' . $employee->image) }}" alt="{{ $employee->lname }}"
-                            class="img-thumbnail" style="max-width: 150px;">
-                    </div>
-                </div>
+                <p><strong>School ID:</strong> {{ $employee->school_id }}</p>
+                <p><strong>Name:</strong>
+                    {{ $employee->fname . ' ' . $employee->mname . ' ' . $employee->lname . ' ' . $employee->sname }}
+                </p>
 
-                <a href="{{ route('employees.edit', $employee->id) }}"><x-primary-button>Edit</x-primary-button></a>
-                <a href="{{ route('employees.index') }}"><x-secondary-button>Back</x-secondary-button></a>
+                <p><strong>Sex:</strong> {{ $employee->sex }}</p>
+                <p><strong>Birthday:</strong> {{ $employee->bdate }}</p>
             </div>
         </div>
+
+        <a href="{{ route('employees.edit', $employee->id) }}"><x-primary-button>Edit</x-primary-button></a>
+        <a href="{{ route('employees.index') }}"><x-secondary-button>Back</x-secondary-button></a>
+
     </div>
 @endsection

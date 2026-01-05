@@ -6,7 +6,7 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
 
         {{-- <x-input-error :messages="$errors->all()" /> --}}
 
@@ -63,12 +63,12 @@
                         <x-input-error :messages="$errors->get('sex')" />
                     </div>
                     <div>
-                        <label>Current Profile Image:</label><br>
+                        <label>Profile Picture</label><br>
                         <img src="{{ asset('storage/' . $vendor->image) }}" alt="{{ $vendor->lname }}"
                             class="img-thumbnail" style="max-width: 150px;">
                     </div>
                     <div class="mb-2">
-                        <x-input-label for="image" value="Upload Image" />
+                        <x-input-label for="image" value="Upload New" />
                         <x-text-input type="file" id="image" name="image" accept="image/*" />
                         <x-input-error :messages="$errors->get('image')" />
                     </div>

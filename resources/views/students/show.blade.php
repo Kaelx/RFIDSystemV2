@@ -5,25 +5,25 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Profile Image:</strong></p>
+                <img src="{{ asset('storage/' . $student->image) }}" alt="{{ $student->lname }}" class="img-thumbnail"
+                    style="max-width: 150px;">
 
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-primary">
-                    <div class="card-body">
-                        <p><strong>School ID:</strong> {{ $student->school_id }}</p>
-                        <p><strong>Name:</strong>
-                            {{ $student->fname . ' ' . $student->mname . ' ' . $student->lname . ' ' . $student->sname }}
-                        </p>
-                        <p><strong>Profile Image:</strong></p>
-                        <img src="{{ asset('storage/' . $student->image) }}" alt="{{ $student->lname }}" class="img-thumbnail"
-                            style="max-width: 150px;">
-                    </div>
-                </div>
+                <p><strong>School ID:</strong> {{ $student->school_id }}</p>
+                <p><strong>Name:</strong>
+                    {{ $student->fname . ' ' . $student->mname . ' ' . $student->lname . ' ' . $student->sname }}
+                </p>
 
-                <a href="{{ route('students.edit', $student->id) }}"><x-primary-button>Edit</x-primary-button></a>
-                <a href="{{ route('students.index') }}"><x-secondary-button>Back</x-secondary-button></a>
+                <p><strong>Sex:</strong> {{ $student->sex }}</p>
+                <p><strong>Birthday:</strong> {{ $student->bdate }}</p>
             </div>
         </div>
+
+        <a href="{{ route('students.edit', $student->id) }}"><x-primary-button>Edit</x-primary-button></a>
+        <a href="{{ route('students.index') }}"><x-secondary-button>Back</x-secondary-button></a>
+
     </div>
 @endsection

@@ -5,24 +5,25 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Profile Image:</strong></p>
+                <img src="{{ asset('storage/' . $vendor->image) }}" alt="{{ $vendor->lname }}" class="img-thumbnail"
+                    style="max-width: 150px;">
 
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-primary">
-                    <div class="card-body">
-                        <p><strong>Name:</strong>
-                            {{ $vendor->fname . ' ' . $vendor->mname . ' ' . $vendor->lname . ' ' . $vendor->sname }}
-                        </p>
-                        <p><strong>Profile Image:</strong></p>
-                        <img src="{{ asset('storage/' . $vendor->image) }}" alt="{{ $vendor->lname }}" class="img-thumbnail"
-                            style="max-width: 150px;">
-                    </div>
-                </div>
+                <p><strong>School ID:</strong> {{ $vendor->school_id }}</p>
+                <p><strong>Name:</strong>
+                    {{ $vendor->fname . ' ' . $vendor->mname . ' ' . $vendor->lname . ' ' . $vendor->sname }}
+                </p>
 
-                <a href="{{ route('vendors.edit', $vendor->id) }}"><x-primary-button>Edit</x-primary-button></a>
-                <a href="{{ route('vendors.index') }}"><x-secondary-button>Back</x-secondary-button></a>
+                <p><strong>Sex:</strong> {{ $vendor->sex }}</p>
+                <p><strong>Birthday:</strong> {{ $vendor->bdate }}</p>
             </div>
         </div>
+
+        <a href="{{ route('vendors.edit', $vendor->id) }}"><x-primary-button>Edit</x-primary-button></a>
+        <a href="{{ route('vendors.index') }}"><x-secondary-button>Back</x-secondary-button></a>
+
     </div>
 @endsection
