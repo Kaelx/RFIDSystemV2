@@ -55,20 +55,19 @@
                                         <table class="table text-nowrap table-hover compact">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-center">#</th>
                                                     <th class="text-center w-50">Department</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="text-center"></td>
-                                                    <td class="">
-
-                                                    </td>
-                                                    <td class="text-center">
-                                                    </td>
-                                                </tr>
+                                                @foreach ($categories->where('type', 'school_department') as $category)
+                                                    <tr>
+                                                        <td>{{ $category->name }}</td>
+                                                        <td class="text-center">
+                                                            <!-- Action buttons go here -->
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -134,20 +133,19 @@
                                         <table class="table text-nowrap table-hover compact">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-center">#</th>
                                                     <th class="text-center w-50">Program/Course</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="text-center"></td>
-                                                    <td class="">
-                                                    </td>
-                                                    <td class="text-center">
-
-                                                    </td>
-                                                </tr>
+                                                @foreach ($categories->where('type', 'program_course') as $category)
+                                                    <tr>
+                                                        <td>{{ $category->name }}</td>
+                                                        <td class="text-center">
+                                                            <!-- Action buttons go here -->
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -207,20 +205,19 @@
                                         <table class="table text-nowrap table-hover compact">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-center">#</th>
                                                     <th class="text-center w-50">Position</th>
                                                     <th class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="text-center"></td>
-                                                    <td class="">
-                                                    </td>
-                                                    <td class="text-center">
-
-                                                    </td>
-                                                </tr>
+                                                @foreach ($categories->where('type', 'employee_position') as $category)
+                                                    <tr>
+                                                        <td>{{ $category->name }}</td>
+                                                        <td class="text-center">
+                                                            <!-- Action buttons go here -->
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
