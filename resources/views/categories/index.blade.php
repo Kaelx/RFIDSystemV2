@@ -8,7 +8,8 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDepartmentModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDepartmentModal"
+                    onclick="resetDepartmentForm()">
                     Add Department
                 </button>
             </div>
@@ -66,15 +67,6 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    // Reset modal when Add Department button is clicked
-                    document.querySelector('[data-target="#addDepartmentModal"]').addEventListener('click', function() {
-                    document.getElementById('addDepartmentModalLabel').innerText = 'Add Department';
-                    var form = document.getElementById('departmentForm');
-                    form.action = '{{ route('departments.store') }}';
-                    document.getElementById('departmentFormMethod').value = 'POST';
-                    document.getElementById('department-name').value = '';
-                    document.getElementById('departmentSaveBtn').innerText = 'Save';
-                    });
                     <form id="departmentForm" method="POST" action="{{ route('departments.store') }}">
                         @csrf
                         <input type="hidden" name="_method" id="departmentFormMethod" value="POST">
@@ -95,6 +87,15 @@
 
 
         <script>
+            function resetDepartmentForm() {
+                document.getElementById('addDepartmentModalLabel').innerText = 'Add Department';
+                var form = document.getElementById('departmentForm');
+                form.action = '{{ route('departments.store') }}';
+                document.getElementById('departmentFormMethod').value = 'POST';
+                document.getElementById('department-name').value = '';
+                document.getElementById('departmentSaveBtn').innerText = 'Save';
+            }
+
             function editDepartment(id, name) {
                 // Change modal title
                 document.getElementById('addDepartmentModalLabel').innerText = 'Edit Department';
@@ -111,12 +112,7 @@
 
             // Reset modal when closed
             $('#addDepartmentModal').on('hidden.bs.modal', function() {
-                document.getElementById('addDepartmentModalLabel').innerText = 'Add Department';
-                var form = document.getElementById('departmentForm');
-                form.action = '{{ route('departments.store') }}';
-                document.getElementById('departmentFormMethod').value = 'POST';
-                document.getElementById('department-name').value = '';
-                document.getElementById('departmentSaveBtn').innerText = 'Save';
+                resetDepartmentForm();
             });
         </script>
 
