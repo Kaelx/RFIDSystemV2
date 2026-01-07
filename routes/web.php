@@ -5,7 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\VendorController;
-use App\Http\Controllers\CategoryController;
+
+
+use App\Models\Department;
+use App\Models\JobPosition;
+use App\Models\Program;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,7 +30,15 @@ Route::middleware('auth')->group(function () {
     Route::resource('students', StudentController::class);
     Route::resource('employees', EmployeeController::class);
     Route::resource('vendors', VendorController::class);
-    Route::resource('categories', CategoryController::class);
+
+
+    Route::get('/categories', function () {
+        $departments = Department::all();
+        $programs = Program::all();
+        $jobPositions = JobPosition::all();
+
+        return view('categories.index', compact('departments', 'programs', 'jobPositions'));
+    });
 });
 
 require __DIR__ . '/auth.php';

@@ -21,18 +21,18 @@ class Employee extends Model
         'status',
     ];
 
-
     public function department()
     {
-        return $this->belongsTo(Category::class, 'department_id');
+        return $this->belongsTo(Department::class);
     }
 
     public function program()
     {
-        return $this->belongsTo(Category::class, 'program_id');
+        return $this->belongsTo(Program::class);
     }
+
     public function position()
     {
-        return $this->belongsTo(Category::class, 'position_id');
+        return $this->belongsTo(JobPosition::class);
     }
 }
