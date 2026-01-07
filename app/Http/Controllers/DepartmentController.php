@@ -28,7 +28,13 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        Department::create($validated);
+
+        return redirect()->back();
     }
 
     /**
@@ -50,16 +56,25 @@ class DepartmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        $department = Department::findOrFail($id);
+        $department->update($validated);
+        return redirect()->back()->with('success', 'Department updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Department $department)
+    public function destroy(string $id)
     {
-        //
+        $department = Department::findOrFail($id);
+
+        $department->delete();
+        return redirect()->back()->with('success', 'Department deleted successfully.');
     }
 }

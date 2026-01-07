@@ -84,7 +84,7 @@ return [
     */
 
     'auth_logo' => [
-        'enabled' => false,
+        'enabled' => true,
         'img' => [
             'path' => 'images/logo/rfid.png',
             'alt' => 'Auth Logo',
@@ -133,7 +133,7 @@ return [
     |
     */
 
-    'usermenu_enabled' => true,
+    'usermenu_enabled' => false,
     'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
@@ -336,6 +336,17 @@ return [
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
+
+
+        ['header' => 'RFID'],
+        [
+            'text' => 'SCAN RFID',
+            'url' => '#',
+            'icon' => 'far fa-fw fa-file',
+            'label_color' => 'success',
+        ],
+
+
         ['header' => 'OTHER'],
         [
             'text' => 'Manage Category',

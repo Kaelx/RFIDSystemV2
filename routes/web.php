@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
@@ -12,8 +13,8 @@ use App\Models\JobPosition;
 use App\Models\Program;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -39,6 +40,8 @@ Route::middleware('auth')->group(function () {
 
         return view('categories.index', compact('departments', 'programs', 'jobPositions'));
     });
+
+    Route::resource('departments', DepartmentController::class)->except('index');
 });
 
 require __DIR__ . '/auth.php';
