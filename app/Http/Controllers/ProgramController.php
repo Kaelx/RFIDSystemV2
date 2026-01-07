@@ -28,7 +28,13 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        Program::create($validated);
+
+        return redirect()->back()->with('success', 'Program created successfully.');
     }
 
     /**
@@ -50,16 +56,25 @@ class ProgramController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Program $program)
+    public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        $program = Program::findOrFail($id);
+        $program->update($validated);
+        return redirect()->back()->with('success', 'Program updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Program $program)
+    public function destroy(string $id)
     {
-        //
+        $program = Program::findOrFail($id);
+
+        $program->delete();
+        return redirect()->back()->with('success', 'Program deleted successfully.');
     }
 }

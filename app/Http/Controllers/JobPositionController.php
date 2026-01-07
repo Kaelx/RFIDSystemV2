@@ -28,7 +28,13 @@ class JobPositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        JobPosition::create($validated);
+
+        return redirect()->back()->with('success', 'Job Position created successfully.');
     }
 
     /**
@@ -50,16 +56,25 @@ class JobPositionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, JobPosition $jobPosition)
+    public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        $jobPosition = JobPosition::findOrFail($id);
+        $jobPosition->update($validated);
+        return redirect()->back()->with('success', 'Job Position updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JobPosition $jobPosition)
+    public function destroy(string $id)
     {
-        //
+        $jobPosition = JobPosition::findOrFail($id);
+
+        $jobPosition->delete();
+        return redirect()->back()->with('success', 'Job Position deleted successfully.');
     }
 }

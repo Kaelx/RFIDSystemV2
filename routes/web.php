@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\JobPositionController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
@@ -42,6 +44,8 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::resource('departments', DepartmentController::class)->except('index');
+    Route::resource('programs', ProgramController::class)->except('index');
+    Route::resource('positions', JobPositionController::class)->except('index');
 });
 
 require __DIR__ . '/auth.php';
