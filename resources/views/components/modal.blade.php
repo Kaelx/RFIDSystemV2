@@ -14,7 +14,7 @@
     <div class="modal-dialog {{ $sizeClass }}" role="document">
         <div class="modal-content">
             @if ($title || isset($header))
-                <div class="modal-header">
+                <div class="modal-header bg-primary">
                     <h5 class="modal-title" id="{{ $id }}Label">
                         @isset($header)
                             {{ $header }}
@@ -33,7 +33,7 @@
             </div>
 
             @isset($footer)
-                <div class="modal-footer">
+                <div class="modal-footer justify-content-between">
                     {{ $footer }}
                 </div>
             @endisset
