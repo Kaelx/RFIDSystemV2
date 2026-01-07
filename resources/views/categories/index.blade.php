@@ -33,7 +33,7 @@
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Action
                                         </button>
-                                        <div class="dropdown-menu">
+                                        <x-dropdown>
                                             <button type="button" class="dropdown-item" data-toggle="modal"
                                                 data-target="#addDepartmentModal"
                                                 onclick="editDepartment({{ $department->id }}, '{{ addslashes($department->name) }}')">Edit</button>
@@ -45,7 +45,7 @@
                                                 <button type="submit" class="dropdown-item text-danger"
                                                     onclick="return confirm('Are you sure you want to delete this department?')">Delete</button>
                                             </form>
-                                        </div>
+                                        </x-dropdown>
                                     </div>
                                 </td>
                             </tr>
@@ -83,7 +83,7 @@
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Action
                                         </button>
-                                        <div class="dropdown-menu">
+                                        <x-dropdown>
                                             <button type="button" class="dropdown-item" data-toggle="modal"
                                                 data-target="#addProgramModal"
                                                 onclick="editProgram({{ $program->id }}, '{{ addslashes($program->name) }}')">
@@ -96,7 +96,7 @@
                                                 <button type="submit" class="dropdown-item text-danger"
                                                     onclick="return confirm('Are you sure you want to delete this program?')">Delete</button>
                                             </form>
-                                        </div>
+                                        </x-dropdown>
                                     </div>
                                 </td>
                             </tr>
@@ -135,7 +135,7 @@
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Action
                                         </button>
-                                        <div class="dropdown-menu">
+                                        <x-dropdown>
                                             <button type="button" class="dropdown-item" data-toggle="modal"
                                                 data-target="#addPositionModal"
                                                 onclick="editPosition({{ $jobPosition->id }}, '{{ addslashes($jobPosition->name) }}')">
@@ -149,7 +149,7 @@
                                                 <button type="submit" class="dropdown-item text-danger"
                                                     onclick="return confirm('Are you sure you want to delete this position?')">Delete</button>
                                             </form>
-                                        </div>
+                                        </x-dropdown>
                                     </div>
                                 </td>
                             </tr>
@@ -188,6 +188,15 @@
                 <div class="form-group">
                     <x-input-label for="program-name" value="Program Name" />
                     <x-text-input id="program-name" name="name" type="text" required />
+                </div>
+                <div class="form-group">
+                    <x-input-label for="department-program" value="Select Department" />
+                    <x-adminlte-select name="department_id" id="department-program" required>
+                        <option value="">-- Select --</option>
+                        @foreach ($departments as $department)
+                            <option value="{{ $department->id }}">{{ $department->name }}</option>
+                        @endforeach
+                    </x-adminlte-select>
                 </div>
             </form>
 

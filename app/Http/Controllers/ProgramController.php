@@ -30,6 +30,7 @@ class ProgramController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'department_id' => 'required|string|max:255',
         ]);
 
         Program::create($validated);
@@ -59,7 +60,8 @@ class ProgramController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255'
+            'name' => 'required|string|max:255',
+            'department_id' => 'required|string|max:255',
         ]);
 
         $program = Program::findOrFail($id);
