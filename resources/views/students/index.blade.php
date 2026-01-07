@@ -11,7 +11,7 @@
                 <div>
                     <a href="{{ route('students.create') }}"><x-primary-button class="mb-2">Register</x-primary-button></a>
                 </div>
-                <table class="table table-bordered" id="users-table">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>School ID</th>
@@ -29,19 +29,10 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                {{ $students->links() }}
             </div>
         </div>
 
     </div>
-
-    @push('js')
-        <script>
-            $(function() {
-                $('#users-table').DataTable({
-                    responsive: true,
-                    autoWidth: false,
-                });
-            });
-        </script>
-    @endpush
 @endsection

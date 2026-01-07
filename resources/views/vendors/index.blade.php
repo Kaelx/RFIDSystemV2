@@ -11,7 +11,7 @@
                 <div>
                     <a href="{{ route('vendors.create') }}"><x-primary-button class="mb-2">Register</x-primary-button></a>
                 </div>
-                <table class="table table-bordered" id="users-table">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -26,20 +26,10 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                {{ $vendors->links() }}
             </div>
         </div>
 
     </div>
-
-
-    @push('js')
-        <script>
-            $(function() {
-                $('#users-table').DataTable({
-                    responsive: true,
-                    autoWidth: false,
-                });
-            });
-        </script>
-    @endpush
 @endsection
