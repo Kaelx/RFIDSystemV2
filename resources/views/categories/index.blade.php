@@ -191,12 +191,12 @@
                 </div>
                 <div class="form-group">
                     <x-input-label for="department-program" value="Select Department" />
-                    <x-adminlte-select name="department_id" id="department-program" required>
+                    <select class="form-control" name="department_id" id="department-program" required>
                         <option value="">-- Select --</option>
                         @foreach ($departments as $department)
                             <option value="{{ $department->id }}">{{ $department->name }}</option>
                         @endforeach
-                    </x-adminlte-select>
+                    </select>
                 </div>
             </form>
 

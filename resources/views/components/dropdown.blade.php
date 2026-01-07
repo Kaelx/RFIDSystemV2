@@ -10,3 +10,6 @@
     {{ $attributes->merge(['class' => trim('dropdown-menu ' . $alignmentClasses . ' ' . $width . ' ' . $contentClasses)]) }}>
     {{ $slot }}
 </div>
+
+
+{{-- adminlte --}}
