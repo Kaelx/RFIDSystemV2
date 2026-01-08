@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Employee;
+use App\Models\JobPosition;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -21,7 +23,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employees.create');
+        $departments = Department::all();
+        $positions = JobPosition::all();
+        return view('employees.create', compact('departments', 'positions'));
     }
 
     /**
@@ -38,6 +42,8 @@ class EmployeeController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'department_id' => 'nullable|string|max:255',
+            'position_id' => 'nullable|string|max:255',
         ], [], [
             'school_id' => 'School ID',
             'fname' => 'First Name',
@@ -47,6 +53,9 @@ class EmployeeController extends Controller
             'bdate' => 'Birthdate',
             'sex' => 'Sex',
             'image' => 'Image',
+            'department_id' => 'Department',
+            'position_id' => 'Program/Course',
+
         ]);
 
         if ($request->hasFile('image')) {
@@ -63,7 +72,9 @@ class EmployeeController extends Controller
     public function show(string $id)
     {
         $employee = Employee::findOrFail($id);
-        return view('employees.show', compact('employee'));
+        $department = Department::find($employee->department_id);
+        $position = JobPosition::find($employee->position_id);
+        return view('employees.show', compact('employee', 'position', 'department'));
     }
 
     /**
@@ -72,8 +83,10 @@ class EmployeeController extends Controller
     public function edit(string $id)
     {
         $employee = Employee::findOrFail($id);
+        $departments = Department::all();
+        $positions = JobPosition::all();
 
-        return view('employees.edit', compact('employee'));
+        return view('employees.edit', compact('employee', 'departments', 'positions'));
     }
 
     /**
@@ -92,6 +105,8 @@ class EmployeeController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'department_id' => 'nullable|string|max:255',
+            'position_id' => 'nullable|string|max:255',
         ], [], [
             'school_id' => 'School ID',
             'fname' => 'First Name',
@@ -101,6 +116,8 @@ class EmployeeController extends Controller
             'bdate' => 'Birthdate',
             'sex' => 'Sex',
             'image' => 'Image',
+            'department_id' => 'Department',
+            'position_id' => 'Position',
         ]);
 
         if ($request->hasFile('image')) {

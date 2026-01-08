@@ -15,7 +15,6 @@ class Employee extends Model
         'bdate',
         'sex',
         'department_id',
-        'program_id',
         'position_id',
         'image',
         'status',
@@ -26,10 +25,6 @@ class Employee extends Model
         return $this->belongsTo(Department::class);
     }
 
-    public function program()
-    {
-        return $this->belongsTo(Program::class);
-    }
 
     public function position()
     {

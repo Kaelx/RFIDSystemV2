@@ -14,16 +14,10 @@ class Student extends Model
         'sname',
         'bdate',
         'sex',
-        'department_id',
         'program_id',
         'image',
         'status',
     ];
-
-    public function department()
-    {
-        return $this->belongsTo(Department::class);
-    }
 
     public function program()
     {

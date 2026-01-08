@@ -16,9 +16,11 @@
                 <p><strong>Name:</strong>
                     {{ $employee->fname . ' ' . $employee->mname . ' ' . $employee->lname . ' ' . $employee->sname }}
                 </p>
-
-                <p><strong>Sex:</strong> {{ $employee->sex }}</p>
                 <p><strong>Birthday:</strong> {{ $employee->bdate }}</p>
+                <p><strong>Sex:</strong> {{ $employee->sex }}</p>
+
+                <p><strong>Department:</strong> {{ $department->name }}</p>
+                <p><strong>Position:</strong> {{ $position->name }}</p>
             </div>
         </div>
 

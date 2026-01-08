@@ -68,6 +68,40 @@
                         </select>
                         <x-input-error :messages="$errors->get('sex')" />
                     </div>
+
+
+                    <div class="mb-2">
+                        <x-input-label for="department" value="Department" />
+                        <select name="department_id" id="department" class="form-control">
+                            <option value=""
+                                {{ old('department_id', $employee->department_id) == '' ? 'selected' : '' }}>-- Select --
+                            </option>
+                            @foreach ($departments as $department)
+                                <option value="{{ $department->id }}"
+                                    {{ old('department_id', $employee->department_id) == $department->id ? 'selected' : '' }}>
+                                    {{ $department->name }}</option>
+                            @endforeach
+                        </select>
+                        <x-input-error :messages="$errors->get('department_id')" />
+                    </div>
+
+
+                    <div class="mb-2">
+                        <x-input-label for="position" value="Position" />
+                        <select name="position_id" id="position" class="form-control">
+                            <option value=""
+                                {{ old('position_id', $employee->position_id) == '' ? 'selected' : '' }}>-- Select --
+                            </option>
+                            @foreach ($positions as $position)
+                                <option value="{{ $position->id }}"
+                                    {{ old('position_id', $employee->position_id) == $position->id ? 'selected' : '' }}>
+                                    {{ $position->name }}</option>
+                            @endforeach
+                        </select>
+                        <x-input-error :messages="$errors->get('position_id')" />
+                    </div>
+
+
                     <div>
                         <label>Profile Picture</label><br>
                         <img src="{{ asset('storage/' . $employee->image) }}" alt="{{ $employee->lname }}"
