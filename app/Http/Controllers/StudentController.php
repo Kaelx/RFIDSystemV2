@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Program;
 
 class StudentController extends Controller
 {
@@ -22,7 +23,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+
+        $programs = Program::all();
+        return view('students.create', compact('programs'));
     }
 
     /**
@@ -39,6 +42,7 @@ class StudentController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'program_id' => 'required|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {
@@ -55,7 +59,7 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        $student = Student::findOrFail($id);
+        $student = Student::with('program.department')->findOrFail($id);
         return view('students.show', compact('student'));
     }
 
@@ -65,7 +69,8 @@ class StudentController extends Controller
     public function edit(string $id)
     {
         $student = Student::findOrFail($id);
-        return view('students.edit', compact('student'));
+        $programs = Program::all();
+        return view('students.edit', compact('student', 'programs'));
     }
 
     /**
@@ -84,6 +89,7 @@ class StudentController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'program_id' => 'required|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {

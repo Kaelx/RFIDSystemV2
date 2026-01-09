@@ -68,6 +68,24 @@
                         </select>
                         <x-input-error :messages="$errors->get('sex')" />
                     </div>
+
+
+
+                    <div class="mb-2">
+                        <x-input-label for="program" value="Program/Course" />
+                        <select name="program_id" id="program" class="form-control">
+                            <option value="" {{ old('program_id', $student->program_id) == '' ? 'selected' : '' }}>--
+                                Select --</option>
+                            @foreach ($programs as $program)
+                                <option value="{{ $program->id }}"
+                                    {{ old('program_id', $student->program_id) == $program->id ? 'selected' : '' }}>
+                                    {{ $program->name }}</option>
+                            @endforeach
+                        </select>
+                        <x-input-error :messages="$errors->get('program_id')" />
+                    </div>
+
+
                     <div>
                         <label>Profile Picture</label><br>
                         <img src="{{ asset('storage/' . $student->image) }}" alt="{{ $student->lname }}"

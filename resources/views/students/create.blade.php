@@ -58,6 +58,19 @@
                         </select>
                         <x-input-error :messages="$errors->get('sex')" />
                     </div>
+
+                    <div class="mb-2">
+                        <x-input-label for="program" value="Program/Course" />
+                        <select name="program_id" id="program" class="form-control">
+                            <option value="">-- Select --</option>
+                            @foreach ($programs as $program)
+                                <option value="{{ $program->id }}" data-department-id="{{ $program->department_id }}">
+                                    {{ $program->name }}</option>
+                            @endforeach
+                        </select>
+                        <x-input-error :messages="$errors->get('program')" />
+                    </div>
+
                     <div class="mb-2">
                         <x-input-label for="image" value="Upload Image" />
                         <x-text-input type="file" id="image" name="image" accept="image/*" />
