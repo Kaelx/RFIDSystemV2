@@ -71,10 +71,8 @@ class EmployeeController extends Controller
      */
     public function show(string $id)
     {
-        $employee = Employee::findOrFail($id);
-        $department = Department::find($employee->department_id);
-        $position = JobPosition::find($employee->position_id);
-        return view('employees.show', compact('employee', 'position', 'department'));
+        $employee = Employee::with(['department', 'position'])->findOrFail($id);
+        return view('employees.show', compact('employee'));
     }
 
     /**
