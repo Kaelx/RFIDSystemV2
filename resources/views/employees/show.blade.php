@@ -18,8 +18,8 @@
                 </p>
                 <p><strong>Birthday:</strong> {{ $employee->bdate }}</p>
                 <p><strong>Sex:</strong> {{ $employee->sex }}</p>
-                <p><strong>Position:</strong> {{ $employee->department->name }}</p>
-                <p><strong>Department:</strong> {{ $employee->position->name }}</p>
+                <p><strong>Position:</strong> {{ $employee->position->name }}</p>
+                <p><strong>Department:</strong> {{ $employee->department->name }}</p>
             </div>
         </div>
 

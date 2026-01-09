@@ -52,7 +52,7 @@
                         <x-input-label for="sex" value="Sex" />
                         <select name="sex" id="sex" class="form-control">
                             <option value="" disabled {{ old('sex', $vendor->sex) == '' ? 'selected' : '' }}>
-                                --Please Choose--</option>
+                                -- Select --</option>
                             <option value="male" {{ old('sex', $vendor->sex) == 'male' ? 'selected' : '' }}>Male
                             </option>
                             <option value="female" {{ old('sex', $vendor->sex) == 'female' ? 'selected' : '' }}>Female

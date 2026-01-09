@@ -20,8 +20,8 @@
                 <p><strong>Sex:</strong> {{ $student->sex }}</p>
                 <p><strong>Birthday:</strong> {{ $student->bdate }}</p>
 
-                <p><strong>Birthday:</strong> {{ $student->program->name }}</p>
-                <p><strong>Birthday:</strong> {{ $student->program->department->name }}</p>
+                <p><strong>Program/Course:</strong> {{ $student->program->name }}</p>
+                <p><strong>Department:</strong> {{ $student->program->department->name }}</p>
             </div>
         </div>
 

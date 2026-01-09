@@ -45,7 +45,7 @@
                     <div class="mb-2">
                         <x-input-label for="sex" value="Sex" />
                         <select name="sex" id="sex" class="form-control">
-                            <option value="" selected>--Please Choose--</option>
+                            <option value="" selected>-- Select --</option>
                             <option value="male" {{ old('sex') == 'male' ? 'selected' : '' }}>Male</option>
                             <option value="female" {{ old('sex') == 'female' ? 'selected' : '' }}>Female</option>
                             <option value="none" {{ old('sex') == 'none' ? 'selected' : '' }}>Prefer not to say
