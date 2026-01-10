@@ -7,12 +7,14 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\RfidScanController;
 use App\Http\Controllers\VendorController;
 
 
 use App\Models\Department;
 use App\Models\JobPosition;
 use App\Models\Program;
+use App\Models\RfidScan;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -46,6 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('departments', DepartmentController::class)->except('index');
     Route::resource('programs', ProgramController::class)->except('index');
     Route::resource('positions', JobPositionController::class)->except('index');
+
+    Route::resource('rfid', RfidScanController::class);
 });
 
 require __DIR__ . '/auth.php';

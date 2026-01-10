@@ -341,7 +341,7 @@ return [
         ['header' => 'RFID'],
         [
             'text' => 'SCAN RFID',
-            'url' => '#',
+            'url' => '/rfid',
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
