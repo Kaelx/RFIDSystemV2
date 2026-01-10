@@ -50,6 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('positions', JobPositionController::class)->except('index');
 
     Route::resource('rfid', RfidScanController::class);
+
+    Route::post('/rfid', [RfidScanController::class, 'rfid'])->name('rfid.scan');
 });
 
 require __DIR__ . '/auth.php';
