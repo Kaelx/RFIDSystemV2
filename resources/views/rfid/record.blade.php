@@ -34,6 +34,7 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    {{ $records->links() }}
                 </table>
             </div>
         </div>
