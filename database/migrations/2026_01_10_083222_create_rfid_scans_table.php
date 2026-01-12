@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('rfid_scans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('record_id');
             $table->string('rfid');
             $table->datetime('scanned_at');
             $table->timestamps();

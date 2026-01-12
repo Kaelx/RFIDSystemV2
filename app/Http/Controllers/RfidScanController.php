@@ -39,7 +39,7 @@ class RfidScanController extends Controller
     public function create($data, $rfid)
     {
         RfidScan::create([
-            'student_id' => $data->id,
+            'record_id' => $data->id,
             'rfid' => $rfid,
             'scanned_at' => now(),
         ]);

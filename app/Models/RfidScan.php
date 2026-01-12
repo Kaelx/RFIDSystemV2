@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RfidScan extends Model
 {
     protected $fillable = [
-        'student_id',
+        'record_id',
         'rfid',
         'scanned_at',
 
