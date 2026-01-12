@@ -345,6 +345,12 @@ return [
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
+        [
+            'text' => 'RECORDS',
+            'url' => '/rfid/record',
+            'icon' => 'far fa-fw fa-file',
+            'label_color' => 'success',
+        ],
 
 
         ['header' => 'OTHER'],

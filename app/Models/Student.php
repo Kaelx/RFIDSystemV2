@@ -23,4 +23,11 @@ class Student extends Model
     {
         return $this->belongsTo(Program::class);
     }
+    /**
+     * Get the RFID scans for the student.
+     */
+    public function rfidScans()
+    {
+        return $this->hasMany(RfidScan::class);
+    }
 }

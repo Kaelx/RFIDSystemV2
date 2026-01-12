@@ -16,13 +16,13 @@
 
 
 
-        @if (isset($student))
+        @if (isset($data))
             <div class="card">
                 <div class="card-body">
-                    <img src="{{ asset('storage/' . $student->image) }}" alt="{{ $student->lname }}" class="img-thumbnail"
+                    <img src="{{ asset('storage/' . $data->image) }}" alt="{{ $data->lname }}" class="img-thumbnail"
                         style="max-width: 150px;">
-                    <p><strong>School ID:</strong>{{ $student->school_id }}</p>
-                    <p><strong>name:</strong>{{ $student->fname . ' ' . $student->mname . ' ' . $student->lname . ' ' . $student->sname }}
+                    <p><strong>School ID:</strong>{{ $data->school_id }}</p>
+                    <p><strong>name:</strong>{{ $data->fname . ' ' . $data->mname . ' ' . $data->lname . ' ' . $data->sname }}
                     </p>
                 </div>
             </div>

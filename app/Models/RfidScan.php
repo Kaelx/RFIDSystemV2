@@ -6,5 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class RfidScan extends Model
 {
-    //
+    protected $fillable = [
+        'student_id',
+        'rfid',
+        'scanned_at',
+
+    ];
+    /**
+     * Get the student that owns the RFID scan.
+     */
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
 }

@@ -49,9 +49,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('programs', ProgramController::class)->except('index');
     Route::resource('positions', JobPositionController::class)->except('index');
 
-    Route::resource('rfid', RfidScanController::class);
-
-    Route::post('/rfid', [RfidScanController::class, 'rfid'])->name('rfid.scan');
+    Route::post('/rfid', [RfidScanController::class, 'rfidScan'])->name('rfid.scan');
+    Route::get('/rfid/record', [RfidScanController::class, 'rfidRecord'])->name('rfid.records');
+    Route::resource('rfid', RfidScanController::class)->except(['store', 'update', 'destroy', 'show', 'edit']);
 });
 
 require __DIR__ . '/auth.php';
