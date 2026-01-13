@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-hover table-sm">
                     <thead>
                         <tr>
                             <th>Name</th>

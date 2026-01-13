@@ -11,7 +11,7 @@
                 <div>
                     <a href="{{ route('students.create') }}"><x-primary-button class="mb-2">Register</x-primary-button></a>
                 </div>
-                <table class="table table-bordered">
+                <table class="table table-bordered table-hover table-sm">
                     <thead>
                         <tr>
                             <th>School ID</th>

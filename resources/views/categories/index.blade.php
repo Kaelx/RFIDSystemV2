@@ -16,7 +16,7 @@
                 </button>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-hover table-sm">
                     <thead>
                         <tr>
                             <th>Department</th>
@@ -66,7 +66,7 @@
                 </button>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-hover table-sm">
                     <thead>
                         <tr>
                             <th>Program/Course</th>
@@ -118,7 +118,7 @@
                 </button>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-hover table-sm">
                     <thead>
                         <tr>
                             <th>Job Position</th>
