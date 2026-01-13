@@ -30,4 +30,9 @@ class Employee extends Model
     {
         return $this->belongsTo(JobPosition::class);
     }
+
+    public function rfidScans()
+    {
+        return $this->hasMany(RfidScan::class);
+    }
 }
