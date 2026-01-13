@@ -29,11 +29,14 @@ class RfidScanController extends Controller
         $type = null;
 
         // Check Student
-        $student = Student::where('rfid', $validated['rfid'])->first();
-        if ($student) {
-            $data = $student;
-            $type = 'student';
+        if (!$data) {
+            $student = Student::where('rfid', $validated['rfid'])->first();
+            if ($student) {
+                $data = $student;
+                $type = 'student';
+            }
         }
+
 
         // Check Employee
         if (!$data) {
