@@ -12,7 +12,6 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>School ID</th>
                             <th>Name</th>
                             <th>Timestamp</th>
                         </tr>
@@ -20,15 +19,14 @@
                     <tbody>
                         @foreach ($records as $record)
                             <tr>
-                                <td>{{ $record->student->school_id ?? '-' }}</td>
                                 <td>
-                                    {{ $record->student->fname .
+                                    {{ ($record->recordable->fname ?? '') .
                                         ' ' .
-                                        $record->student->mname .
+                                        ($record->recordable->mname ?? '') .
                                         ' ' .
-                                        $record->student->lname .
+                                        ($record->recordable->lname ?? '') .
                                         ' ' .
-                                        $record->student->sname }}
+                                        ($record->recordable->sname ?? '') }}
                                 </td>
                                 <td>{{ $record->created_at }}</td>
                             </tr>

@@ -7,21 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class RfidScan extends Model
 {
     protected $fillable = [
-        'record_id',
+        'recordable_id',
+        'recordable_type',
         'rfid',
         'scanned_at',
-
     ];
-    /**
-     * Get the student that owns the RFID scan.
-     */
-    public function student()
-    {
-        return $this->belongsTo(Student::class);
-    }
 
-    public function employee()
+    /**
+     * Get the parent recordable model (student, employee, vendor).
+     */
+    public function recordable()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->morphTo();
     }
 }

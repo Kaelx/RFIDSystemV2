@@ -24,10 +24,10 @@ class Student extends Model
         return $this->belongsTo(Program::class);
     }
     /**
-     * Get the RFID scans for the student.
+     * Get all of the student's RFID scans.
      */
     public function rfidScans()
     {
-        return $this->hasMany(RfidScan::class);
+        return $this->morphMany(RfidScan::class, 'recordable');
     }
 }

@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('rfid_scans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('record_id');
+            // Polymorphic relation: recordable_id, recordable_type
+            $table->unsignedBigInteger('recordable_id');
+            $table->string('recordable_type');
             $table->string('rfid');
             $table->datetime('scanned_at');
             $table->timestamps();
+            // Optionally, you can add an index for the morph columns
+            $table->index(['recordable_id', 'recordable_type']);
         });
     }
 

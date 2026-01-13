@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\RfidScan;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Employee;
+use App\Models\Vendor;
 
 class RfidScanController extends Controller
 {
@@ -23,14 +25,40 @@ class RfidScanController extends Controller
             'rfid' => 'required|string|max:255',
         ]);
 
-        $data = Student::where('rfid', $validated['rfid'])->first();
+        $data = null;
+        $type = null;
+
+        // Check Student
+        $student = Student::where('rfid', $validated['rfid'])->first();
+        if ($student) {
+            $data = $student;
+            $type = 'student';
+        }
+
+        // Check Employee
+        if (!$data) {
+            $employee = Employee::where('rfid', $validated['rfid'])->first();
+            if ($employee) {
+                $data = $employee;
+                $type = 'employee';
+            }
+        }
+
+        // Check Vendor
+        if (!$data) {
+            $vendor = Vendor::where('rfid', $validated['rfid'])->first();
+            if ($vendor) {
+                $data = $vendor;
+                $type = 'vendor';
+            }
+        }
 
         // Record the scan in RfidScan table
         if ($data) {
             $this->create($data, $validated['rfid']);
         }
 
-        return view('rfid.index', compact('data'));
+        return view('rfid.index', compact('data', 'type'));
     }
 
     /**
@@ -39,7 +67,8 @@ class RfidScanController extends Controller
     public function create($data, $rfid)
     {
         RfidScan::create([
-            'record_id' => $data->id,
+            'recordable_id' => $data->id,
+            'recordable_type' => $data->getMorphClass(),
             'rfid' => $rfid,
             'scanned_at' => now(),
         ]);
@@ -50,7 +79,7 @@ class RfidScanController extends Controller
     public function rfidRecord()
     {
 
-        $records = RfidScan::with('student')->latest()->paginate(10);
+        $records = RfidScan::with('recordable')->latest()->paginate(10);
         return view('rfid.record', compact('records'));
     }
 

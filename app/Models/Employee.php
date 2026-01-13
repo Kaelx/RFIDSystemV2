@@ -31,8 +31,11 @@ class Employee extends Model
         return $this->belongsTo(JobPosition::class);
     }
 
+    /**
+     * Get all of the employee's RFID scans.
+     */
     public function rfidScans()
     {
-        return $this->hasMany(RfidScan::class);
+        return $this->morphMany(RfidScan::class, 'recordable');
     }
 }
