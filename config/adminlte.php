@@ -311,53 +311,53 @@ return [
         ],
 
         // Sidebar items:
-        ['header' => 'MAIN'],
+        ['header' => 'MAIN', 'classes' => 'text-warning'],
         [
             'text' => 'Dashboard',
             'url' => '/dashboard',
-            'icon' => 'far fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-tachometer-alt',
             'label_color' => 'success',
         ],
         [
             'text' => 'Manage Employees',
             'url' => '/employees',
-            'icon' => 'far fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-users',
             'label_color' => 'success',
         ],
         [
             'text' => 'Manage Students',
             'url' => '/students',
-            'icon' => 'far fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-user-graduate',
             'label_color' => 'success',
         ],
         [
             'text' => 'Manage Vendors',
             'url' => '/vendors',
-            'icon' => 'far fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-store',
             'label_color' => 'success',
         ],
 
 
-        ['header' => 'RFID'],
+        ['header' => 'RFID', 'classes' => 'text-warning'],
         [
             'text' => 'SCAN RFID',
             'url' => '/rfid',
-            'icon' => 'far fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-qrcode',
             'label_color' => 'success',
         ],
         [
             'text' => 'RECORDS',
             'url' => '/rfid/record',
-            'icon' => 'far fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-clipboard-list',
             'label_color' => 'success',
         ],
 
 
-        ['header' => 'OTHER'],
+        ['header' => 'OTHER', 'classes' => 'text-warning'],
         [
             'text' => 'Manage Category',
             'url' => '/categories',
-            'icon' => 'far fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-tags',
             'label_color' => 'success',
         ],
 
