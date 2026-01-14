@@ -58,7 +58,7 @@ class RfidScanController extends Controller
 
         // Record the scan in RfidScan table
         if ($data) {
-            $this->create($data, $validated['rfid']);
+            $this->create($data);
         }
 
         return view('rfid.index', compact('data', 'type'));
@@ -67,12 +67,11 @@ class RfidScanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($data, $rfid)
+    public function create($data)
     {
         RfidScan::create([
             'recordable_id' => $data->id,
             'recordable_type' => $data->getMorphClass(),
-            'rfid' => $rfid,
             'scanned_at' => now(),
         ]);
     }

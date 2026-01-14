@@ -9,7 +9,6 @@ class RfidScan extends Model
     protected $fillable = [
         'recordable_id',
         'recordable_type',
-        'rfid',
         'scanned_at',
     ];
 

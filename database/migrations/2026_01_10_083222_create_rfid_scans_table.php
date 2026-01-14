@@ -16,7 +16,6 @@ return new class extends Migration
             // Polymorphic relation: recordable_id, recordable_type
             $table->unsignedBigInteger('recordable_id');
             $table->string('recordable_type');
-            $table->string('rfid');
             $table->datetime('scanned_at');
             $table->timestamps();
             // Optionally, you can add an index for the morph columns
