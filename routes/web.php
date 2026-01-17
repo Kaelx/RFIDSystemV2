@@ -45,12 +45,12 @@ Route::middleware('auth')->group(function () {
         $programs = Program::all();
         $jobPositions = JobPosition::all();
 
-        return view('categories.index', compact('departments', 'programs', 'jobPositions'));
+        return view('category.index', compact('departments', 'programs', 'jobPositions'));
     });
 
-    Route::resource('departments', DepartmentController::class)->except('index');
-    Route::resource('programs', ProgramController::class)->except('index');
-    Route::resource('positions', JobPositionController::class)->except('index');
+    Route::resource('department', DepartmentController::class)->except('index');
+    Route::resource('program', ProgramController::class)->except('index');
+    Route::resource('position', JobPositionController::class)->except('index');
 
     Route::get('/rfid', [RfidScanController::class, 'index'])->name('rfid.index');
     Route::post('/rfid', [RfidScanController::class, 'rfidScan'])->name('rfid.scan');

@@ -40,8 +40,7 @@
                                             <button type="button" class="dropdown-item" data-toggle="modal"
                                                 data-target="#addDepartmentModal"
                                                 onclick="editDepartment({{ $department->id }}, '{{ addslashes($department->name) }}')">Edit</button>
-                                            <form method="POST"
-                                                action="{{ route('departments.destroy', $department->id) }}"
+                                            <form method="POST" action="{{ route('department.destroy', $department->id) }}"
                                                 style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
@@ -92,7 +91,7 @@
                                                 onclick="editProgram({{ $program->id }}, '{{ addslashes($program->name) }}')">
                                                 Edit
                                             </button>
-                                            <form method="POST" action="{{ route('programs.destroy', $program->id) }}"
+                                            <form method="POST" action="{{ route('program.destroy', $program->id) }}"
                                                 style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
@@ -144,8 +143,7 @@
                                                 onclick="editPosition({{ $jobPosition->id }}, '{{ addslashes($jobPosition->name) }}')">
                                                 Edit
                                             </button>
-                                            <form method="POST"
-                                                action="{{ route('positions.destroy', $jobPosition->id) }}"
+                                            <form method="POST" action="{{ route('position.destroy', $jobPosition->id) }}"
                                                 style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
@@ -167,7 +165,7 @@
 
         <!-- Add Department Modal -->
         <x-modal id="addDepartmentModal" title="Add Department">
-            <form id="departmentForm" method="POST" action="{{ route('departments.store') }}">
+            <form id="departmentForm" method="POST" action="{{ route('department.store') }}">
                 @csrf
                 <input type="hidden" name="_method" id="departmentFormMethod" value="POST">
                 <div class="form-group">
@@ -185,7 +183,7 @@
 
         <!-- Add Program Modal -->
         <x-modal id="addProgramModal" title="Add Program">
-            <form id="programForm" method="POST" action="{{ route('programs.store') }}">
+            <form id="programForm" method="POST" action="{{ route('program.store') }}">
                 @csrf
                 <input type="hidden" name="_method" id="programFormMethod" value="POST">
                 <div class="form-group">
@@ -212,7 +210,7 @@
 
         <!-- Add Position Modal -->
         <x-modal id="addPositionModal" title="Add Position">
-            <form id="positionForm" method="POST" action="{{ route('positions.store') }}">
+            <form id="positionForm" method="POST" action="{{ route('position.store') }}">
                 @csrf
                 <input type="hidden" name="_method" id="positionFormMethod" value="POST">
                 <div class="form-group">
@@ -232,7 +230,7 @@
             function resetDepartmentForm() {
                 document.getElementById('addDepartmentModalLabel').innerText = 'Add Department';
                 var form = document.getElementById('departmentForm');
-                form.action = '{{ route('departments.store') }}';
+                form.action = '{{ route('department.store') }}';
                 document.getElementById('departmentFormMethod').value = 'POST';
                 document.getElementById('department-name').value = '';
                 document.getElementById('departmentSaveBtn').innerText = 'Save';
@@ -243,7 +241,7 @@
                 document.getElementById('addDepartmentModalLabel').innerText = 'Edit Department';
                 // Set form action to update route
                 var form = document.getElementById('departmentForm');
-                form.action = '/departments/' + id;
+                form.action = '/department/' + id;
                 // Set method to PATCH
                 document.getElementById('departmentFormMethod').value = 'PATCH';
                 // Fill input
@@ -261,7 +259,7 @@
             function resetProgramForm() {
                 document.getElementById('addProgramModalLabel').innerText = 'Add Program';
                 var form = document.getElementById('programForm');
-                form.action = '{{ route('programs.store') }}';
+                form.action = '{{ route('program.store') }}';
                 document.getElementById('programFormMethod').value = 'POST';
                 document.getElementById('program-name').value = '';
                 document.getElementById('programSaveBtn').innerText = 'Save';
@@ -270,7 +268,7 @@
             function editProgram(id, name) {
                 document.getElementById('addProgramModalLabel').innerText = 'Edit Program';
                 var form = document.getElementById('programForm');
-                form.action = '/programs/' + id;
+                form.action = '/program/' + id;
                 document.getElementById('programFormMethod').value = 'PATCH';
                 document.getElementById('program-name').value = name;
                 document.getElementById('programSaveBtn').innerText = 'Update';
@@ -284,7 +282,7 @@
             function resetPositionForm() {
                 document.getElementById('addPositionModalLabel').innerText = 'Add Position';
                 var form = document.getElementById('positionForm');
-                form.action = '{{ route('positions.store') }}';
+                form.action = '{{ route('position.store') }}';
                 document.getElementById('positionFormMethod').value = 'POST';
                 document.getElementById('position-name').value = '';
                 document.getElementById('positionSaveBtn').innerText = 'Save';
@@ -293,7 +291,7 @@
             function editPosition(id, name) {
                 document.getElementById('addPositionModalLabel').innerText = 'Edit Position';
                 var form = document.getElementById('positionForm');
-                form.action = '/positions/' + id;
+                form.action = '/position/' + id;
                 document.getElementById('positionFormMethod').value = 'PATCH';
                 document.getElementById('position-name').value = name;
                 document.getElementById('positionSaveBtn').innerText = 'Update';
