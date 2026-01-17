@@ -34,7 +34,7 @@ class DepartmentController extends Controller
 
         Department::create($validated);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Department created successfully.');
     }
 
     /**

@@ -7,6 +7,9 @@
 @section('content')
     <div class="container-fluid">
 
+        <x-auth-session-status class="mb-2" :status="session('success')" />
+        <x-auth-session-status class="mb-2" :status="session('deleted')" />
+
 
         <div class="card">
             <div class="card-header">
