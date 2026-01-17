@@ -332,7 +332,7 @@ return [
         ],
         [
             'text' => 'Manage Vendors',
-            'url' => '/vendor',
+            'url' => '/seller',
             'icon' => 'fas fa-fw fa-store',
             'label_color' => 'success',
         ],

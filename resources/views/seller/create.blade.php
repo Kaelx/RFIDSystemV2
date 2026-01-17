@@ -11,7 +11,7 @@
         {{-- <x-input-error :messages="$errors->all()" /> --}}
 
         <div class="card">
-            <form action="{{ route('vendors.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('seller.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-header">
                     <h2 class="card-title">Form</h2>
@@ -61,8 +61,7 @@
                 </div>
                 <div class="card-footer">
                     <x-primary-button type="submit">Save</x-primary-button>
-                    <a href="{{ route('vendors.index') }}"><x-secondary-button
-                            type="button">Cancel</x-secondary-button></a>
+                    <a href="{{ route('seller.index') }}"><x-secondary-button type="button">Cancel</x-secondary-button></a>
                 </div>
             </form>
         </div>

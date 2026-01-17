@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vendor;
+use App\Models\Seller;
 use Illuminate\Http\Request;
 
-class VendorController extends Controller
+class SellerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $vendors = Vendor::paginate(10);
-        return view('vendors.index', compact('vendors'));
+        $sellers = Seller::paginate(10);
+        return view('seller.index', compact('sellers'));
     }
 
     /**
@@ -21,7 +21,7 @@ class VendorController extends Controller
      */
     public function create()
     {
-        return view('vendors.create');
+        return view('seller.create');
     }
 
     /**
@@ -52,8 +52,8 @@ class VendorController extends Controller
             $validated['image'] = $imagePath;
         }
 
-        Vendor::create($validated);
-        return redirect()->route('vendors.index')->with('success', 'Vendor created successfully.');
+        Seller::create($validated);
+        return redirect()->route('seller.index')->with('success', 'Vendor created successfully.');
     }
 
     /**
@@ -61,8 +61,8 @@ class VendorController extends Controller
      */
     public function show(string $id)
     {
-        $vendor = Vendor::findOrFail($id);
-        return view('vendors.show', compact('vendor'));
+        $seller = Seller::findOrFail($id);
+        return view('seller.show', compact('seller'));
     }
 
     /**
@@ -70,8 +70,8 @@ class VendorController extends Controller
      */
     public function edit(string $id)
     {
-        $vendor = Vendor::findOrFail($id);
-        return view('vendors.edit', compact('vendor'));
+        $seller = Seller::findOrFail($id);
+        return view('seller.edit', compact('seller'));
     }
 
     /**
@@ -79,7 +79,7 @@ class VendorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $vendor = Vendor::findOrFail($id);
+        $seller = Seller::findOrFail($id);
 
         $validated = $request->validate([
             'fname' => 'required|string|max:255',
@@ -105,14 +105,14 @@ class VendorController extends Controller
             $validated['image'] = $imagepath;
         }
 
-        $vendor->update($validated);
-        return redirect()->route('vendors.show', $vendor->id)->with('success', 'Employee update successfully');
+        $seller->update($validated);
+        return redirect()->route('seller.show', $seller->id)->with('success', 'Employee update successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vendor $vendor)
+    public function destroy(string $id)
     {
         //
     }

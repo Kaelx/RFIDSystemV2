@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RfidScanController;
-use App\Http\Controllers\VendorController;
+use App\Http\Controllers\SellerController;
 
 
 use App\Models\Department;
@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::resource('employee', EmployeeController::class);
-    Route::resource('vendor', VendorController::class);
+    Route::resource('seller', SellerController::class);
 
 
     Route::get('/category', function () {

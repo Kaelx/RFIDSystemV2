@@ -13,7 +13,7 @@
         <div class="card">
             <div class="card-body">
                 <div>
-                    <a href="{{ route('vendors.create') }}"><x-primary-button class="mb-2">Register</x-primary-button></a>
+                    <a href="{{ route('seller.create') }}"><x-primary-button class="mb-2">Register</x-primary-button></a>
                 </div>
                 <table class="table table-bordered table-hover table-sm">
                     <thead>
@@ -22,8 +22,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($vendors as $vendor)
-                            <tr style="cursor:pointer;" onclick="window.location='{{ route('vendors.show', $vendor->id) }}'">
+                        @foreach ($sellers as $vendor)
+                            <tr style="cursor:pointer;" onclick="window.location='{{ route('seller.show', $vendor->id) }}'">
                                 <td>{{ $vendor->fname . ' ' . $vendor->mname . ' ' . $vendor->lname . ' ' . $vendor->sname }}
                                 </td>
                             </tr>
@@ -31,7 +31,7 @@
                     </tbody>
                 </table>
 
-                {{ $vendors->links() }}
+                {{ $sellers->links() }}
             </div>
         </div>
 
