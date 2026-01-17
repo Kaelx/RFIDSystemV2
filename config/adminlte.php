@@ -320,19 +320,19 @@ return [
         ],
         [
             'text' => 'Manage Employees',
-            'url' => '/employees',
+            'url' => '/employee',
             'icon' => 'fas fa-fw fa-users',
             'label_color' => 'success',
         ],
         [
             'text' => 'Manage Students',
-            'url' => '/students',
+            'url' => '/student',
             'icon' => 'fas fa-fw fa-user-graduate',
             'label_color' => 'success',
         ],
         [
             'text' => 'Manage Vendors',
-            'url' => '/vendors',
+            'url' => '/vendor',
             'icon' => 'fas fa-fw fa-store',
             'label_color' => 'success',
         ],
@@ -356,7 +356,7 @@ return [
         ['header' => 'OTHER', 'classes' => 'text-warning'],
         [
             'text' => 'Manage Category',
-            'url' => '/categories',
+            'url' => '/category',
             'icon' => 'fas fa-fw fa-tags',
             'label_color' => 'success',
         ],

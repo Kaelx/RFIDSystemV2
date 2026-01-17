@@ -30,6 +30,7 @@
 
         <a href="{{ route('students.edit', $student->id) }}"><x-primary-button>Edit</x-primary-button></a>
         <a href="{{ route('students.index') }}"><x-secondary-button>Back</x-secondary-button></a>
+        <a href="{{ route('students.record', $student->id) }}"><x-secondary-button>Record</x-secondary-button></a>
 
     </div>
 @endsection

@@ -63,6 +63,14 @@ class StudentController extends Controller
         return view('students.show', compact('student'));
     }
 
+
+    public function showRecord(string $id)
+    {
+        $record = Student::with('program.department')->findOrFail($id);
+        return view('students.record', compact('record'));
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      */

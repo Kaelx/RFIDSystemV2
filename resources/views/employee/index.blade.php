@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-body">
                 <div>
-                    <a href="{{ route('employees.create') }}"><x-primary-button class="mb-2">Register</x-primary-button></a>
+                    <a href="{{ route('employee.create') }}"><x-primary-button class="mb-2">Register</x-primary-button></a>
                 </div>
                 <table class="table table-bordered table-hover table-sm">
                     <thead>
@@ -24,7 +24,7 @@
                     <tbody>
                         @foreach ($employees as $employee)
                             <tr style="cursor:pointer;"
-                                onclick="window.location='{{ route('employees.show', $employee->id) }}'">
+                                onclick="window.location='{{ route('employee.show', $employee->id) }}'">
                                 <td>{{ $employee->school_id }}</td>
                                 <td>{{ "{$employee->fname} {$employee->mname} {$employee->lname} {$employee->sname}" }}</td>
                             </tr>

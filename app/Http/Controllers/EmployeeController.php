@@ -15,7 +15,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::paginate(10);
-        return view('employees.index', compact('employees'));
+        return view('employee.index', compact('employees'));
     }
 
     /**
@@ -25,7 +25,7 @@ class EmployeeController extends Controller
     {
         $departments = Department::all();
         $positions = JobPosition::all();
-        return view('employees.create', compact('departments', 'positions'));
+        return view('employee.create', compact('departments', 'positions'));
     }
 
     /**
@@ -63,7 +63,7 @@ class EmployeeController extends Controller
             $validated['image'] = $imagepath;
         }
         Employee::create($validated);
-        return redirect()->route('employees.index')->with('success', 'Employee created successfully.');
+        return redirect()->route('employee.index')->with('success', 'Employee created successfully.');
     }
 
     /**
@@ -72,7 +72,7 @@ class EmployeeController extends Controller
     public function show(string $id)
     {
         $employee = Employee::with(['department', 'position'])->findOrFail($id);
-        return view('employees.show', compact('employee'));
+        return view('employee.show', compact('employee'));
     }
 
     /**
@@ -84,7 +84,7 @@ class EmployeeController extends Controller
         $departments = Department::all();
         $positions = JobPosition::all();
 
-        return view('employees.edit', compact('employee', 'departments', 'positions'));
+        return view('employee.edit', compact('employee', 'departments', 'positions'));
     }
 
     /**
@@ -124,7 +124,7 @@ class EmployeeController extends Controller
         }
 
         $employee->update($validated);
-        return redirect()->route('employees.show', $employee->id)->with('success', 'Employee update successfully');
+        return redirect()->route('employee.show', $employee->id)->with('success', 'Employee update successfully');
     }
 
     /**

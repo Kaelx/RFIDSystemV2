@@ -32,12 +32,15 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::resource('students', StudentController::class);
-    Route::resource('employees', EmployeeController::class);
-    Route::resource('vendors', VendorController::class);
+    Route::resource('student', StudentController::class);
+    Route::get('/student/{student}/record', [StudentController::class, 'showRecord'])->name('students.record');
 
 
-    Route::get('/categories', function () {
+    Route::resource('employee', EmployeeController::class);
+    Route::resource('vendor', VendorController::class);
+
+
+    Route::get('/category', function () {
         $departments = Department::all();
         $programs = Program::all();
         $jobPositions = JobPosition::all();

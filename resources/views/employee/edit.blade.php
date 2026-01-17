@@ -11,7 +11,7 @@
         {{-- <x-input-error :messages="$errors->all()" /> --}}
 
         <div class="card">
-            <form action="{{ route('employees.update', $employee->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('employee.update', $employee->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="card-header">
@@ -115,7 +115,7 @@
                 </div>
                 <div class="card-footer">
                     <x-primary-button type="submit">Update</x-primary-button>
-                    <a href="{{ route('employees.show', $employee->id) }}"><x-secondary-button
+                    <a href="{{ route('employee.show', $employee->id) }}"><x-secondary-button
                             type="button">Cancel</x-secondary-button></a>
                 </div>
             </form>
