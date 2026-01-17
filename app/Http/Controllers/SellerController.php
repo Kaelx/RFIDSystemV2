@@ -83,6 +83,7 @@ class SellerController extends Controller
         $data = RfidScan::with('recordable')
             ->where('recordable_type', Seller::class)
             ->where('recordable_id', $id)
+            ->latest()
             ->get();
         return view('seller.record', compact('data'));
     }

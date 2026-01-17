@@ -96,6 +96,7 @@ class StudentController extends Controller
         $data = RfidScan::with('recordable')
             ->where('recordable_type', Student::class)
             ->where('recordable_id', $id)
+            ->latest()
             ->get();
         return view('student.record', compact('data'));
     }

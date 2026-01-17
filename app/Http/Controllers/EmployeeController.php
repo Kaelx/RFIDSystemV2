@@ -94,6 +94,7 @@ class EmployeeController extends Controller
         $data = RfidScan::with('recordable')
             ->where('recordable_type', Employee::class)
             ->where('recordable_id', $id)
+            ->latest()
             ->get();
         return view('employee.record', compact('data'));
     }
