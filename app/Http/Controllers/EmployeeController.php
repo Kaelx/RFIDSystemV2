@@ -6,6 +6,7 @@ use App\Models\Department;
 use App\Models\Employee;
 use App\Models\JobPosition;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class EmployeeController extends Controller
 {
@@ -42,6 +43,15 @@ class EmployeeController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            // 'rfid' => 'nullable|string|max:255|unique:employees,rfid',
+            'rfid' => [
+            'nullable',
+            'string',
+            'max:255',
+            Rule::unique('employees', 'rfid'),
+            Rule::unique('students', 'rfid'),
+            Rule::unique('sellers', 'rfid'),
+            ],
             'department_id' => 'nullable|string|max:255',
             'position_id' => 'nullable|string|max:255',
         ], [], [
@@ -53,8 +63,9 @@ class EmployeeController extends Controller
             'bdate' => 'Birthdate',
             'sex' => 'Sex',
             'image' => 'Image',
+            'rfid' => 'RFID',
             'department_id' => 'Department',
-            'position_id' => 'Program/Course',
+            'position_id' => 'Job Position',
 
         ]);
 
@@ -103,6 +114,14 @@ class EmployeeController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'rfid' => [
+                'nullable',
+                'string',
+                'max:255',
+                Rule::unique('employees', 'rfid')->ignore($employee->id),
+                Rule::unique('students', 'rfid'),
+                Rule::unique('sellers', 'rfid'),
+            ],
             'department_id' => 'nullable|string|max:255',
             'position_id' => 'nullable|string|max:255',
         ], [], [
@@ -114,8 +133,9 @@ class EmployeeController extends Controller
             'bdate' => 'Birthdate',
             'sex' => 'Sex',
             'image' => 'Image',
+            'rfid' => 'RFID',
             'department_id' => 'Department',
-            'position_id' => 'Position',
+            'position_id' => 'Job Position',
         ]);
 
         if ($request->hasFile('image')) {

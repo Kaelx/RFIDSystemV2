@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Seller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class SellerController extends Controller
 {
@@ -37,6 +38,14 @@ class SellerController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'rfid' => [
+                'nullable',
+                'string',
+                'max:255',
+                Rule::unique('employees', 'rfid'),
+                Rule::unique('students', 'rfid'),
+                Rule::unique('sellers', 'rfid'),
+            ],
         ], [], [
             'fname' => 'First Name',
             'mname' => 'Middle Name',
@@ -45,6 +54,7 @@ class SellerController extends Controller
             'bdate' => 'Birthdate',
             'sex' => 'Sex',
             'image' => 'Image',
+            'rfid' => 'RFID',
         ]);
 
         if ($request->hasFile('image')) {
@@ -89,6 +99,14 @@ class SellerController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'rfid' => [
+                'nullable',
+                'string',
+                'max:255',
+                Rule::unique('employees', 'rfid'),
+                Rule::unique('students', 'rfid'),
+                Rule::unique('sellers', 'rfid')->ignore($seller->id),
+            ],
         ], [], [
             'school_id' => 'School ID',
             'fname' => 'First Name',

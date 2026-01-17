@@ -17,6 +17,7 @@ class Employee extends Model
         'department_id',
         'position_id',
         'image',
+        'rfid',
         'status',
     ];
 

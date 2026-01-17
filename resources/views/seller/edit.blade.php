@@ -72,6 +72,13 @@
                         <x-text-input type="file" id="image" name="image" accept="image/*" />
                         <x-input-error :messages="$errors->get('image')" />
                     </div>
+
+                    <div class="mb-2">
+                        <x-input-label for="rfid" value="RFID" />
+                        <x-text-input type="password" id="rfid" name="rfid"
+                            value="{{ old('rfid', $seller->rfid) }}" />
+                        <x-input-error :messages="$errors->get('rfid')" />
+                    </div>
                 </div>
                 <div class="card-footer">
                     <x-primary-button type="submit">Update</x-primary-button>

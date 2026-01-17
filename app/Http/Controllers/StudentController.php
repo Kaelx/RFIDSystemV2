@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Program;
+use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
@@ -42,7 +43,26 @@ class StudentController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'rfid' => [
+                'nullable',
+                'string',
+                'max:255',
+                Rule::unique('employees', 'rfid'),
+                Rule::unique('students', 'rfid'),
+                Rule::unique('sellers', 'rfid'),
+            ],
             'program_id' => 'required|string|max:255',
+        ],[],[
+            'school_id' => 'School ID',
+            'fname' => 'First Name',
+            'mname' => 'Middle Name',
+            'lname' => 'Last Name',
+            'sname' => 'Suffix Name',
+            'bdate' => 'Birth Date',
+            'sex' => 'Sex',
+            'image' => 'Image',
+            'rfid' => 'RFID',
+            'program_id' => 'Program/Course',
         ]);
 
         if ($request->hasFile('image')) {
@@ -97,7 +117,26 @@ class StudentController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'rfid' => [ 
+                'nullable',
+                'string',
+                'max:255',
+                Rule::unique('employees', 'rfid'),
+                Rule::unique('students', 'rfid')->ignore($student->id),
+                Rule::unique('sellers', 'rfid'),
+            ],
             'program_id' => 'required|string|max:255',
+        ],[],[
+            'school_id' => 'School ID',
+            'fname' => 'First Name',
+            'mname' => 'Middle Name',
+            'lname' => 'Last Name',
+            'sname' => 'Suffix Name',
+            'bdate' => 'Birth Date',
+            'sex' => 'Sex',
+            'image' => 'Image',
+            'rfid' => 'RFID',
+            'program_id' => 'Program/Course',
         ]);
 
         if ($request->hasFile('image')) {

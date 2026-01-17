@@ -58,10 +58,17 @@
                         <x-text-input type="file" id="image" name="image" accept="image/*" />
                         <x-input-error :messages="$errors->get('image')" />
                     </div>
+
+                    <div class="mb-2">
+                        <x-input-label for="rfid" value="Scan RFID" />
+                        <x-text-input type="password" id="rfid" name="rfid" value="{{ old('rfid') }}" />
+                        <x-input-error :messages="$errors->get('rfid')" />
+                    </div>
                 </div>
                 <div class="card-footer">
                     <x-primary-button type="submit">Save</x-primary-button>
-                    <a href="{{ route('seller.index') }}"><x-secondary-button type="button">Cancel</x-secondary-button></a>
+                    <a href="{{ route('seller.index') }}"><x-secondary-button
+                            type="button">Cancel</x-secondary-button></a>
                 </div>
             </form>
         </div>

@@ -14,6 +14,7 @@ class Seller extends Model
         'bdate',
         'sex',
         'image',
+        'rfid',
         'status',
     ];
 

@@ -16,6 +16,7 @@ class Student extends Model
         'sex',
         'program_id',
         'image',
+        'rfid',
         'status',
     ];
 
