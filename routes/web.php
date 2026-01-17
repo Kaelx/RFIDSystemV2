@@ -37,7 +37,12 @@ Route::middleware('auth')->group(function () {
 
 
     Route::resource('employee', EmployeeController::class);
+    Route::get('/employee/{employee}/record', [EmployeeController::class, 'showRecord'])->name('employee.record');
+
+
+
     Route::resource('seller', SellerController::class);
+    Route::get('/seller/{seller}/record', [SellerController::class, 'showRecord'])->name('seller.record');
 
 
     Route::get('/category', function () {

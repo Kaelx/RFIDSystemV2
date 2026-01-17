@@ -10,10 +10,10 @@
         @if ($data->isNotEmpty())
             <div class="card">
                 <div class="card-body">
-                    @php $student = $data->first()->recordable; @endphp
-                    <p><strong>Schoold ID:</strong> {{ $student->school_id }}</p>
+                    @php $employee = $data->first()->recordable; @endphp
+                    <p><strong>Schoold ID:</strong> {{ $employee->school_id }}</p>
                     <p><strong>Name:</strong>
-                        {{ $student->fname . ' ' . $student->mname . ' ' . $student->lname . ' ' . $student->sname }}
+                        {{ $employee->fname . ' ' . $employee->mname . ' ' . $employee->lname . ' ' . $employee->sname }}
                     </p>
                 </div>
             </div>
@@ -39,10 +39,10 @@
                     </table>
                 </div>
             </div>
-            <a href="{{ route('student.show', $student->id) }}"><x-secondary-button>Back</x-secondary-button></a>
+            <a href="{{ route('employee.show', $employee->id) }}"><x-secondary-button>Back</x-secondary-button></a>
         @else
             <div class="alert alert-info">
-                No record found for this student.
+                No record found for this employee.
             </div>
         @endif
     </div>

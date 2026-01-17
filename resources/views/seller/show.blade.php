@@ -16,7 +16,6 @@
                 <img src="{{ asset('storage/' . $seller->image) }}" alt="{{ $seller->lname }}" class="img-thumbnail"
                     style="max-width: 150px;">
 
-                <p><strong>School ID:</strong> {{ $seller->school_id }}</p>
                 <p><strong>Name:</strong>
                     {{ $seller->fname . ' ' . $seller->mname . ' ' . $seller->lname . ' ' . $seller->sname }}
                 </p>
@@ -27,6 +26,7 @@
         </div>
 
         <a href="{{ route('seller.edit', $seller->id) }}"><x-primary-button>Edit</x-primary-button></a>
+        <a href="{{ route('seller.record', $seller->id) }}"><x-secondary-button>Record</x-secondary-button></a>
         <a href="{{ route('seller.index') }}"><x-secondary-button>Back</x-secondary-button></a>
 
     </div>

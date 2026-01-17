@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Program;
 use Illuminate\Validation\Rule;
+use App\Models\RfidScan;
 
 class StudentController extends Controller
 {
@@ -52,7 +53,7 @@ class StudentController extends Controller
                 Rule::unique('sellers', 'rfid'),
             ],
             'program_id' => 'required|string|max:255',
-        ],[],[
+        ], [], [
             'school_id' => 'School ID',
             'fname' => 'First Name',
             'mname' => 'Middle Name',
@@ -84,10 +85,19 @@ class StudentController extends Controller
     }
 
 
+    // public function showRecord(string $id)
+    // {
+    //     $record = Student::with('program.department')->findOrFail($id);
+    //     return view('student.record', compact('record'));
+    // }
+
     public function showRecord(string $id)
     {
-        $record = Student::with('program.department')->findOrFail($id);
-        return view('student.record', compact('record'));
+        $data = RfidScan::with('recordable')
+            ->where('recordable_type', Student::class)
+            ->where('recordable_id', $id)
+            ->get();
+        return view('student.record', compact('data'));
     }
 
 
@@ -117,7 +127,7 @@ class StudentController extends Controller
             'bdate' => 'required|date',
             'sex' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'rfid' => [ 
+            'rfid' => [
                 'nullable',
                 'string',
                 'max:255',
@@ -126,7 +136,7 @@ class StudentController extends Controller
                 Rule::unique('sellers', 'rfid'),
             ],
             'program_id' => 'required|string|max:255',
-        ],[],[
+        ], [], [
             'school_id' => 'School ID',
             'fname' => 'First Name',
             'mname' => 'Middle Name',

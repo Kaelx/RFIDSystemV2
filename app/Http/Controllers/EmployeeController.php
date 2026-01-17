@@ -7,6 +7,7 @@ use App\Models\Employee;
 use App\Models\JobPosition;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Models\RfidScan;
 
 class EmployeeController extends Controller
 {
@@ -45,12 +46,12 @@ class EmployeeController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             // 'rfid' => 'nullable|string|max:255|unique:employees,rfid',
             'rfid' => [
-            'nullable',
-            'string',
-            'max:255',
-            Rule::unique('employees', 'rfid'),
-            Rule::unique('students', 'rfid'),
-            Rule::unique('sellers', 'rfid'),
+                'nullable',
+                'string',
+                'max:255',
+                Rule::unique('employees', 'rfid'),
+                Rule::unique('students', 'rfid'),
+                Rule::unique('sellers', 'rfid'),
             ],
             'department_id' => 'nullable|string|max:255',
             'position_id' => 'nullable|string|max:255',
@@ -85,6 +86,20 @@ class EmployeeController extends Controller
         $employee = Employee::with(['department', 'position'])->findOrFail($id);
         return view('employee.show', compact('employee'));
     }
+
+
+
+    public function showRecord(string $id)
+    {
+        $data = RfidScan::with('recordable')
+            ->where('recordable_type', Employee::class)
+            ->where('recordable_id', $id)
+            ->get();
+        return view('employee.record', compact('data'));
+    }
+
+
+
 
     /**
      * Show the form for editing the specified resource.

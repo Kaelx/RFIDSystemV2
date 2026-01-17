@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Seller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Models\RfidScan;
 
 class SellerController extends Controller
 {
@@ -74,6 +75,19 @@ class SellerController extends Controller
         $seller = Seller::findOrFail($id);
         return view('seller.show', compact('seller'));
     }
+
+
+
+    public function showRecord(string $id)
+    {
+        $data = RfidScan::with('recordable')
+            ->where('recordable_type', Seller::class)
+            ->where('recordable_id', $id)
+            ->get();
+        return view('seller.record', compact('data'));
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.

@@ -27,6 +27,7 @@
         </div>
 
         <a href="{{ route('employee.edit', $employee->id) }}"><x-primary-button>Edit</x-primary-button></a>
+        <a href="{{ route('employee.record', $employee->id) }}"><x-secondary-button>Record</x-secondary-button></a>
         <a href="{{ route('employee.index') }}"><x-secondary-button>Back</x-secondary-button></a>
 
     </div>
