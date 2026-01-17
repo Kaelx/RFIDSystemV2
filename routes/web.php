@@ -18,7 +18,7 @@ use App\Models\RfidScan;
 
 Route::get('/', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');;
+})->middleware(['auth', 'verified'])->name('home');;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
