@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-body">
                 <div>
-                    <a href="{{ route('students.create') }}"><x-primary-button class="mb-2">Register</x-primary-button></a>
+                    <a href="{{ route('student.create') }}"><x-primary-button class="mb-2">Register</x-primary-button></a>
                 </div>
                 <table class="table table-bordered table-hover table-sm">
                     <thead>
@@ -23,8 +23,7 @@
                     </thead>
                     <tbody>
                         @foreach ($students as $student)
-                            <tr style="cursor:pointer;"
-                                onclick="window.location='{{ route('students.show', $student->id) }}'">
+                            <tr style="cursor:pointer;" onclick="window.location='{{ route('student.show', $student->id) }}'">
                                 <td> {{ $student->school_id }}</td>
                                 <td>{{ $student->fname . ' ' . $student->mname . ' ' . $student->lname . ' ' . $student->sname }}
                                 </td>

@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('student', StudentController::class);
-    Route::get('/student/{student}/record', [StudentController::class, 'showRecord'])->name('students.record');
+    Route::get('/student/{student}/record', [StudentController::class, 'showRecord'])->name('student.record');
 
 
     Route::resource('employee', EmployeeController::class);

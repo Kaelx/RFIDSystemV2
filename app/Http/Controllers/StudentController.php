@@ -15,7 +15,7 @@ class StudentController extends Controller
     {
         $students = Student::paginate(10);
 
-        return view('students.index', compact('students'));
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -25,7 +25,7 @@ class StudentController extends Controller
     {
 
         $programs = Program::all();
-        return view('students.create', compact('programs'));
+        return view('student.create', compact('programs'));
     }
 
     /**
@@ -51,7 +51,7 @@ class StudentController extends Controller
         }
 
         Student::create($validated);
-        return redirect()->route('students.index')->with('success', 'Student created successfully.');
+        return redirect()->route('student.index')->with('success', 'Student created successfully.');
     }
 
     /**
@@ -60,14 +60,14 @@ class StudentController extends Controller
     public function show(string $id)
     {
         $student = Student::with('program.department')->findOrFail($id);
-        return view('students.show', compact('student'));
+        return view('student.show', compact('student'));
     }
 
 
     public function showRecord(string $id)
     {
         $record = Student::with('program.department')->findOrFail($id);
-        return view('students.record', compact('record'));
+        return view('student.record', compact('record'));
     }
 
 
@@ -78,7 +78,7 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
         $programs = Program::all();
-        return view('students.edit', compact('student', 'programs'));
+        return view('student.edit', compact('student', 'programs'));
     }
 
     /**
@@ -106,7 +106,7 @@ class StudentController extends Controller
         }
 
         $student->update($validated);
-        return redirect()->route('students.show', $student->id)->with('success', 'Student updated successfully.');
+        return redirect()->route('student.show', $student->id)->with('success', 'Student updated successfully.');
     }
 
     /**
