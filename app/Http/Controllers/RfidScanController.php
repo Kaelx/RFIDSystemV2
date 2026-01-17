@@ -6,7 +6,7 @@ use App\Models\RfidScan;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Employee;
-use App\Models\Vendor;
+use App\Models\Seller;
 
 class RfidScanController extends Controller
 {
@@ -45,9 +45,9 @@ class RfidScanController extends Controller
             }
         }
 
-        // Check Vendor
+        // Check Seller
         if (!$data) {
-            $vendor = Vendor::where('rfid', $validated['rfid'])->first();
+            $vendor = Seller::where('rfid', $validated['rfid'])->first();
             if ($vendor) {
                 $data = $vendor;
                 $type = 'vendor';
