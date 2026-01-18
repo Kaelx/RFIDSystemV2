@@ -361,7 +361,7 @@ return [
             'label_color' => 'success',
         ],
 
-        ['header' => 'SETTINGS'],
+        ['header' => 'SETTINGS', 'classes' => 'text-warning'],
 
         [
             'text' => 'profile',
