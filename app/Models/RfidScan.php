@@ -12,6 +12,10 @@ class RfidScan extends Model
         'scanned_at',
     ];
 
+    protected $casts = [
+        'scanned_at' => 'datetime',
+    ];
+
     /**
      * Get the parent recordable model (student, employee, vendor).
      */

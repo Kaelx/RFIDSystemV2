@@ -31,8 +31,8 @@
                         <tbody>
                             @foreach ($data as $row)
                                 <tr>
-                                    <td>{{ $row->created_at->format('F d, Y') }}</td>
-                                    <td>{{ $row->created_at->format('h:i A') }}</td>
+                                    <td>{{ $row->scanned_at->format('F d, Y') }}</td>
+                                    <td>{{ $row->scanned_at->format('h:i A') }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

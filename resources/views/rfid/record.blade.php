@@ -28,7 +28,10 @@
                                         ' ' .
                                         ($record->recordable->sname ?? '') }}
                                 </td>
-                                <td>{{ $record->created_at }}</td>
+                                <td>
+                                    {{ $record->scanned_at->format('F d, Y g:i A') }}
+
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
