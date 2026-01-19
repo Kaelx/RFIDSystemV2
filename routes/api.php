@@ -17,7 +17,7 @@ Route::middleware(['api.key', 'throttle:api'])->group(function () {
     // API Key management
     Route::get('/keys', [ApiKeyController::class, 'index']);
     Route::delete('/keys/{id}', [ApiKeyController::class, 'revoke']);
+
+    //rfid
+    Route::get('/record', [RfidScanController::class, 'rfidRecord']);
 });
-
-
-Route::get('/record', [RfidScanController::class, 'rfidRecord']);

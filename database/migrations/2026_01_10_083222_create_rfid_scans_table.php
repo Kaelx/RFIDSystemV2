@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('recordable_id');
             $table->string('recordable_type');
             $table->timestamp('scanned_at');
+            $table->timestamps();
 
             // Optionally, you can add an index for the morph columns
             $table->index(['recordable_id', 'recordable_type']);
