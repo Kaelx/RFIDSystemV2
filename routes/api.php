@@ -12,12 +12,13 @@ Route::get('/ping', function () {
 Route::post('/keys/generate', [ApiKeyController::class, 'generate']);
 
 // Protected routes using API key
-Route::middleware(['api.key', 'throttle:api'])->group(function () {
+Route::middleware('api.key')->group(function () {
 
     // API Key management
     Route::get('/keys', [ApiKeyController::class, 'index']);
     Route::delete('/keys/{id}', [ApiKeyController::class, 'revoke']);
 
     //rfid
+    Route::get('/scan', [RfidScanController::class, 'rfidScan']);
     Route::get('/record', [RfidScanController::class, 'rfidRecord']);
 });

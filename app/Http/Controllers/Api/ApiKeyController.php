@@ -22,7 +22,7 @@ class ApiKeyController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
-            'name' => 'nullable|string|max:255',
+            'description' => 'nullable|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -48,7 +48,7 @@ class ApiKeyController extends Controller
         $apiKey = ApiKey::create([
             'user_id' => $user->id,
             'key' => ApiKey::generate(),
-            'name' => $request->name ?? 'Default Key',
+            'description' => $request->description ?? 'Default Description',
         ]);
 
         return response()->json([
@@ -56,7 +56,7 @@ class ApiKeyController extends Controller
             'message' => 'API key generated successfully',
             'data' => [
                 'api_key' => $apiKey->key,
-                'name' => $apiKey->name,
+                'description' => $apiKey->description,
                 'user' => [
                     'id' => $user->id,
                     'name' => $user->name,
