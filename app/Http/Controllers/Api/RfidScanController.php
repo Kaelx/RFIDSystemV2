@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\RfidScan;
 use Illuminate\Http\Request;
 use App\Models\Student;
@@ -77,7 +78,7 @@ class RfidScanController extends Controller
     public function rfidRecord()
     {
 
-        $records = RfidScan::with('recordable')->latest()->get();
+        $records = RfidScan::with('recordable')->get();
 
         return response()->json([
             'success' => true,

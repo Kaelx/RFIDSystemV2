@@ -1,19 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\Api\ApiKeyController;
+use App\Http\Controllers\Api\ApiKeyController;
+use App\Http\Controllers\Api\RfidScanController;
 
 Route::get('/ping', function () {
     return 'pong';
 });
 
 // Generate API key (public - requires email/password)
-// Route::post('/keys/generate', [ApiKeyController::class, 'generate']);
+Route::post('/keys/generate', [ApiKeyController::class, 'generate']);
 
-// // Protected routes using API key
-// Route::middleware(['api.key', 'throttle:api'])->group(function () {
+// Protected routes using API key
+Route::middleware(['api.key', 'throttle:api'])->group(function () {
 
-//     // API Key management
-//     Route::get('/keys', [ApiKeyController::class, 'index']);
-//     Route::delete('/keys/{id}', [ApiKeyController::class, 'revoke']);
-// });
+    // API Key management
+    Route::get('/keys', [ApiKeyController::class, 'index']);
+    Route::delete('/keys/{id}', [ApiKeyController::class, 'revoke']);
+});
+
+
+Route::get('/record', [RfidScanController::class, 'rfidRecord']);
