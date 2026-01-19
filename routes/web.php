@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('position', JobPositionController::class)->except('index');
 
     Route::get('/rfid', [RfidScanController::class, 'index'])->name('rfid.index');
+    Route::post('/rfid/scan', [RfidScanController::class, 'rfidScan'])->name('rfid.scan');
     Route::get('/rfid/record', [RfidScanController::class, 'rfidRecord'])->name('rfid.records');
 });
 

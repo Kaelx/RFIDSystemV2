@@ -60,7 +60,6 @@ class RfidScanController extends Controller
             'data' => $data,
             'type' => $type
         ]);
-        // return view('rfid.index', compact('data', 'type'));
     }
 
 
