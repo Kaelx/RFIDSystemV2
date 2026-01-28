@@ -14,5 +14,6 @@ Route::post('/keys/generate', [ApiKeyController::class, 'generate']);
 // Protected routes using API key
 Route::middleware('api.key')->group(function () {
 
-    Route::get('/record', [RfidScanController::class, 'rfidRecord']);
+    Route::get('/record', [RfidScanController::class, 'checkRecord']);
+    Route::post('/record', [RfidScanController::class, 'storeRecord']);
 });

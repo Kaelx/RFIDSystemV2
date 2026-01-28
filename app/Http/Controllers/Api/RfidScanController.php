@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class RfidScanController extends Controller
 {
 
-    public function rfidRecord(Request $request)
+    public function checkRecord(Request $request)
     {
         if (!$request->has('rfid')) {
             return response()->json([
@@ -58,6 +58,8 @@ class RfidScanController extends Controller
         }
 
         if ($result) {
+            $this->storeRecord($result);
+
             return response()->json([
                 'success' => true,
                 'data' => $result
@@ -68,5 +70,15 @@ class RfidScanController extends Controller
             'success' => false,
             'message' => 'RFID not found'
         ], 404);
+    }
+
+
+    public function storeRecord($result)
+    {
+        RfidScan::create([
+            'recordable_id' => $result['data']->id,
+            'recordable_type' => $result['data']->getMorphClass(),
+            'scanned_at' => now(),
+        ]);
     }
 }
